@@ -1,22 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <!-- jumbotron -->
+      <div
+        class="jumbotron"
+        style="
+          background-image: url('././assets/images/foodshopLogo.png');
+          /* background-size: cover; */
+          background-position: center;
+          height: 500px;
+        "
+      >
+        <div class="container">
+          <nav class="navbar navbar-light bg-transparent float-right">
+            <form>
+              <button class="btn btn-outline-secondary" type="button">
+                sign up
+              </button>
+              <button class="btn bg-white" type="button">
+                Login
+              </button>
+            </form>
+          </nav>
+          <!-- <h1 class="display-4">Fluid jumbotron</h1>
+          <p class="lead text-white">
+            the ultimate tool for recipe and grocery planning
+          </p> -->
+        </div>
+      </div>
 
+      <!--intro paragraph-->
+      <div class="container" style="padding: 45px;">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <h5 class="h5-header" style="text-align: center; color: #cac9c9;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </h5>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+
+      <!--cards for samples-->
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div class="card text-center border-0" style="width: 18rem;">
+              <img
+                src="././assets/images/list.png"
+                class="mx-auto d-block"
+                alt="..."
+                style="width: 50px;"
+              />
+              <div class="card-body">
+                <h5 class="card-title" style="color: #545454;">
+                  Search Recipes
+                </h5>
+                <p class="card-text" style="color: #cac9c9;">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="card text-center border-0" style="width: 18rem;">
+              <img
+                src="././assets/images/calendar.png"
+                class="mx-auto d-block"
+                alt="..."
+                style="width: 50px;"
+              />
+              <div class="card-body">
+                <h5 class="card-title" style="color: #545454;">
+                  Plan Meals
+                </h5>
+                <p class="card-text" style="color: #cac9c9;">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card text-center border-0" style="width: 18rem;">
+              <img
+                src="././assets/images/grocery.png"
+                class="mx-auto d-block"
+                alt="..."
+                style="width: 50px;"
+              />
+              <div class="card-body">
+                <h5 class="card-title" style="color: 545454;">
+                  Grocery Lists
+                </h5>
+                <p class="card-text" style="color: #cac9c9;">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi architecto
+                  beatae vitae dicta sunt explicabo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
