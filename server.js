@@ -1,4 +1,7 @@
 const express = require('express');
+// express-session module thats allows you to get and set data to a sessions using cookies stored on a client
+const session = require('express-session');
+const passport = require('');
 const db = require('./models');
 const routes = require('./routes');
 
