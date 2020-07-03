@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }),
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -26,3 +28,5 @@ db.sequelize.sync().then(() => {
     console.log(`App listening on PORT ${PORT}`);
   });
 });
+
+// added stuff

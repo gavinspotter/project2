@@ -12,18 +12,19 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
+    jquery: true,
   },
-  extends: ['airbnb-base'],
+  extends: ["airbnb-base"],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     ecmaVersion: 2018,
   },
   rules: {
-    'no-console': 'off',
-    'no-param-reassign': 'off',
-    'import/no-unresolved': 'off'
+    "no-console": "off",
+    "no-param-reassign": "off",
+    "import/no-unresolved": "off",
   },
 };
