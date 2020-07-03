@@ -30,13 +30,14 @@ module.exports = (sequelize, DataTypes) => {
 
   // Method will check if password entered by user
   //   can be compared to hashed password in database.
-  User.prototype.validPassword = (password) => bcrypt.compareSync(password, this.password);
+  User.prototype.validPassword = (password) =>
+    bcrypt.compareSync(password, this.password);
   // Automatic method that will hash a users password before their account is created.
   User.addHook('beforeCreate', (user) => {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
-      null,
+      null
     );
   });
   return User;
