@@ -17,6 +17,9 @@ app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./routes/html-routes')(app);
+require('./routes/api-routes')(app);
+
 app.use('/', routes);
 
 // Sync sequelize models then start Express app
