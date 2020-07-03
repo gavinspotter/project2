@@ -12,6 +12,7 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
+    jquery: true,
   },
   extends: ['airbnb-base'],
   globals: {
@@ -24,6 +25,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-param-reassign': 'off',
-    'import/no-unresolved': 'off'
+    'import/no-unresolved': 'off',
   },
 };
