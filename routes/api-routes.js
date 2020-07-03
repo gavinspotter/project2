@@ -2,10 +2,9 @@ const router = require('express').Router();
 const passport = require('../config/passport');
 const db = require('../models');
 
-router.get('/', (req, res) => res.json('Sample API get endpoint'));
 
 // If the user has valid credentials, they'll be allowed to access restricted routes
-router.post('/api/login', passport.authenticate('local'), (req, res) => {
+router.post('/api/index', passport.authenticate('local'), (req, res) => {
   res.json(req.user);
 });
 // If the user is successfully created then log them in, otherwise, throw an error.
@@ -15,7 +14,7 @@ router.post('/api/signup', (req, res) => {
     password: req.body.password,
   })
     .then(() => {
-      res.redirect(307, '/api/login');
+      res.redirect(307, '/api/signup');
     })
     .catch((err) => {
       res.status(401).json(err);
