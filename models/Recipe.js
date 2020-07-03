@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   const Recipe = sequelize.define('Recipe', {
     name: {
       // allow users to save recipes
-      // this will be used to display back to them
+      // this data will be used to display back to them
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   // create a relation to the user who saved the recipe
   Recipe.associate = (models) => {
-    Recipe.belongsTo(models.Recipe, {
+    Recipe.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
       },
