@@ -135,3 +135,8 @@ this template is meant to get you up-and-running with a full-stack web applicati
 * [eslint Getting started page](https://eslint.org/docs/user-guide/getting-started)
 * [dotenv NPM Documentation](https://www.npmjs.com/package/dotenv)
 * [airbnb styleguide documentation](https://github.com/airbnb/javascript)
+
+
+title: 
+
+description: this application is going to help users with meal prepping. 

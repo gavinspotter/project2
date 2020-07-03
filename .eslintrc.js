@@ -1,8 +1,8 @@
 // =====================================================
-//    The Eslint configuration below can be adjusted to 
+//    The Eslint configuration below can be adjusted to
 //  suit your needs.  Please visit the ESLint website at
-//  https://eslint.org/docs/user-guide/configuring for 
-//  information on how to do so.  The configuration is 
+//  https://eslint.org/docs/user-guide/configuring for
+//  information on how to do so.  The configuration is
 //  set to use the Airbnb style recommendations.
 // =====================================================
 
@@ -13,9 +13,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
+  extends: ['airbnb-base'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -24,6 +22,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    "no-console": "off"
+    'no-console': 'off',
+    'no-param-reassign': 'off',
   },
 };
