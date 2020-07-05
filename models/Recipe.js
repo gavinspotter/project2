@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         len: [1],
       },
     },
+    pickedDay: {
+      type: DataTypes.STRING,
+    },
   });
   // create a relation to the user who saved the recipe
   Recipe.associate = (models) => {
