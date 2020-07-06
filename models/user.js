@@ -1,7 +1,7 @@
 // Require bcrypt in order to salt hash user passwords
 const bcrypt = require('bcryptjs');
 // Wrap user model in module.exports
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   // Add email and password columns to User table.
   const User = sequelize.define('User', {
     email: {
@@ -30,11 +30,11 @@ module.exports = function(sequelize, DataTypes) {
 
   // Method will check if password entered by user
   //   can be compared to hashed password in database.
-  User.prototype.validPassword = function(password) {
+  User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
   // Automatic method that will hash a users password before their account is created.
-  User.addHook('beforeCreate', function(user) {
+  User.addHook('beforeCreate', (user) => {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),

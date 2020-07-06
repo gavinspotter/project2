@@ -8,13 +8,13 @@ passport.use(
     {
       usernameField: 'email',
     },
-    function(email, password, done) {
+    ((email, password, done) => {
       // Use findOne method to locate user when theres a sign in attempt.
       db.User.findOne({
         where: {
-          email: email
+          email,
         },
-      }).then(function(dbUser) {
+      }).then((dbUser) => {
         //   If we're unable to find the users email.
         if (!dbUser) {
           return done(null, false, {
@@ -22,8 +22,8 @@ passport.use(
               'You have entered an incorrect email or are not yet registered.',
           });
           // If the password doesn't match the entered email.
-        } 
-        else if (!dbUser.validPassword(password)) {
+        }
+        if (!dbUser.validPassword(password)) {
           return done(null, false, {
             message: 'You have entered an incorrect password.',
           });
@@ -31,15 +31,15 @@ passport.use(
         // If neither are found, return the user.
         return done(null, dbUser);
       });
-    },
+    }),
   ),
 );
 
 // Sequelize must serialize and deserialize users to maintain authentication across HTTP requests
-passport.serializeUser(function(user, cb) {
+passport.serializeUser((user, cb) => {
   cb(null, user);
 });
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
