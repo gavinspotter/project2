@@ -43,9 +43,30 @@
               >
                 sign up
               </button>
-              <button class="btn bg-white" type="button" id="loginButton">
+              <button class="btn bg-white" type="button" id="loginButton" data-toggle='modal' data-target="#myModal">
                 Login
               </button>
+              <div id="myModal" class="modal fade">
+                <div class="modal-dialog modal-login">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Member Login</h4>	
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="login">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="email-input" placeholder="Email" required="required">		
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" id="password-input" placeholder="Password" required="required">	
+                        </div>        
+                          <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>     
             </form>
           </nav>
           <!-- <h1 class="display-4">Fluid jumbotron</h1>
