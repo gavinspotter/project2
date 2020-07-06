@@ -2,7 +2,6 @@ const router = require('express').Router();
 const passport = require('../config/passport');
 const db = require('../models');
 
-
 // If the user has valid credentials, they'll be allowed to access restricted routes
 router.post('/api/index', passport.authenticate('local'), (req, res) => {
   res.json(req.user);
@@ -36,5 +35,26 @@ router.get('/api/user_data', (req, res) => {
     });
   }
 });
-
+// Route for saving recipe to db
+// needs to reference user who saved it
+router.post('/api/recipes', (req, res) => {
+  db.Recipe.create({});
+});
+// Route for saving shopping lists to db
+// needs to reference user who saved it
+// this will make sure that the current user's list is displayed.
+router.post('/api/shopping_lists', (req, res) => {
+  db.ShoppingList.create({});
+});
+// Route for getting user's saved recipes
+// user id will be determined by who is logged in
+router.get('/api/recipes/:user_id', (req, res) => {
+  db.Recipe.findAll({});
+});
+// Route for getting the user's current shopping list
+// user id will be determined by who is logged in.
+router.get('/api/shopping_lists/:user_id', (req, res) => {
+  db.ShoppingList.findAll({});
+});
+// Route for getting recipes to be displayed
 module.exports = router;
