@@ -56,5 +56,5 @@ router.get('/api/recipes/:user_id', (req, res) => {
 router.get('/api/shopping_lists/:user_id', (req, res) => {
   db.ShoppingList.findAll({});
 });
-// Route for getting recipes to be displayed
+
 module.exports = router;
