@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('./config/passport');
 const db = require('./models');
-const routes = require('./routes');
+
 
 const app = express();
 
@@ -22,7 +22,6 @@ app.use(passport.session());
 require('./routes/html-routes')(app);
 require('./routes/api-routes')(app);
 
-app.use('/', routes);
 
 // Sync sequelize models then start Express app
 // =============================================
