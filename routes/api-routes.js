@@ -25,7 +25,7 @@ module.exports = (app) => {
     res.redirect('/');
   });
   // Route for getting info about the user.
-  app.get('/api/user_data', (req, res) => {
+  app.post('/api/user_data', (req, res) => {
     if (!req.user) {
       res.json({});
     } else {
