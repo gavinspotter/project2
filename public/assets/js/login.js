@@ -27,7 +27,8 @@ $(document).ready(() => {
       email,
       password,
     })
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         window.location.replace('/search');
       })
       .catch((err) => {
