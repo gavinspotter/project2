@@ -27,5 +27,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'import/no-unresolved': 'off',
     'no-use-before-define': 'off',
+    'object-shorthand': 'off',
   },
 };

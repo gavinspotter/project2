@@ -1,8 +1,8 @@
 $(document).ready(() => {
   // Getting references to our form and input
   const signUpForm = $('form.signup');
-  const emailInput = $('input#email-input');
-  const passwordInput = $('input#password-input');
+  const emailInput = $('input#email-signup');
+  const passwordInput = $('input#password-signup');
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on('submit', (event) => {
@@ -23,8 +23,8 @@ $(document).ready(() => {
   // If we have an email and password, run the signUpUser function
   function signUpUser(email, password) {
     $.post('/api/signup', {
-      email,
-      password,
+      email: email,
+      password: password,
     })
       .then(() => {
         window.location.replace('/search');
