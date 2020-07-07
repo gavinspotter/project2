@@ -9,12 +9,12 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
 
-  app.get('/signup', (req, res) => {
-    if (req.user) {
-      res.redirect('/search');
-    }
-    res.sendFile(path.join(__dirname, '../public/signup.html'));
-  });
+  // app.get('/signup', (req, res) => {
+  //   if (req.user) {
+  //     res.redirect('/search');
+  //   }
+  //   res.sendFile(path.join(__dirname, '../public/signup.html'));
+  // });
 
   app.get('/search', isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, '../public/search.html'));
