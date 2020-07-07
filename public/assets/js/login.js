@@ -24,8 +24,8 @@ $(document).ready(() => {
   // loginUser does post to api/index and redirects
   function loginUser(email, password) {
     $.post('/api/index', {
-      email,
-      password,
+      email: email,
+      password: password,
     })
       .then(() => {
         window.location.replace('/search');

@@ -30,12 +30,18 @@
                 class="btn btn-outline-secondary"
                 type="button"
                 id="signUpButton"
+                data-toggle='modal'
+                data-target="#signUpModal"
               >
                 sign up
               </button>
               <button class="btn bg-white" type="button" id="loginButton" data-toggle='modal' data-target="#myModal">
                 Login
               </button>
+            </form>
+          </nav>
+        </div>
+            <div class="container">
               <div id="myModal" class="modal fade">
                 <div class="modal-dialog modal-login">
                   <div class="modal-content">
@@ -56,9 +62,33 @@
                     </div>
                   </div>
                 </div>
-              </div>     
-            </form>
-          </nav>
+              </div>
+            </div>   
+            
+            <div class="container">
+              <div id="signUpModal" class="modal fade">
+                <div class="modal-dialog modal-login">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Register</h4>	
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form class="signup">
+                        <div class="form-group">
+                          <input type="email" class="form-control" id="email-signup" placeholder="Email" required="required">		
+                        </div>
+                        <div class="form-group">
+                          <input type="password" class="form-control" id="password-signup" placeholder="Password" required="required">	
+                        </div>        
+                          <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>     
+          
           <!-- <h1 class="display-4">Fluid jumbotron</h1>
           <p class="lead text-white">
             the ultimate tool for recipe and grocery planning
@@ -147,7 +177,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/login.js"></script>
+  <script src="assets/js/signup.js"></script>
 </body>
 
 </html>
