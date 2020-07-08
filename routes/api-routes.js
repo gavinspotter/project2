@@ -64,4 +64,10 @@ module.exports = (app) => {
     console.log(req, res);
     db.ShoppingList.findAll({});
   });
+  app.get('/api/recipes/search/:searchQuery', (req, res) => {
+    console.log(req.params.searchQuery);
+    res.json({
+      msg: 'masdf',
+    });
+  });
 };

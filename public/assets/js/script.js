@@ -2,10 +2,10 @@
 const apiKey = '2a60aadc108349cd8cf2e7ad1e59495a';
 let user = {};
 
-const createCards = (title, recipe) => {
+const createCards = (title, recipe, id) => {
   const cardEl = $('<div>', {
     class: 'card',
-  });
+  }).data('id', id);
   const cardBodyEl = $('<div>', {
     class: 'card-body',
   });
@@ -34,22 +34,26 @@ const getIngredients = async (id) => {
   );
   console.log('getingredients', res);
   res.ingredients.forEach((ingredient) => {
-    createCards(ingredient.name, ingredient.amount.us.value);
+    createCards(ingredient.name, ingredient.amount.us.value, id);
+    console.log(id);
   });
 };
 
 const getRecipes = async (query) => {
   const res = await $.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&number=1`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&includeIngredients&number=1`
   );
-  res.results.forEach((result) => getInstructions(result.id));
-  res.results.forEach((result) => getIngredients(result.id));
-  // console.log(res);
+  // res.results.forEach((result) => getInstructions(result.id));
+  // res.results.forEach((result) => getIngredients(result.id));
+  console.log(res);
 };
 
 $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
-  getRecipes(searchQuery);
+  // getRecipes(searchQuery);
+  $.get(`/api/recipes/search/${searchQuery}`).then((res) => {
+    console.log(res);
+  });
 });
 
 // get's the logged in user's data
