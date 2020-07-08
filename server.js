@@ -7,7 +7,7 @@ const db = require('./models');
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8091;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,8 +19,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/html-routes')(app);
 require('./routes/api-routes')(app);
+require('./routes/html-routes')(app);
 
 
 // Sync sequelize models then start Express app
@@ -31,4 +31,4 @@ db.sequelize.sync().then(() => {
   });
 });
 
-// added stuff
+// added stuff 

@@ -1,9 +1,11 @@
 
 const passport = require('../config/passport');
 const db = require('../models');
+const axios = require('axios');
+
 
 module.exports = (app) => {
-// If the user has valid credentials, they'll be allowed to access restricted routes
+  // If the user has valid credentials, they'll be allowed to access restricted routes
   app.post('/api/index', passport.authenticate('local'), (req, res) => {
     res.json(req.user);
   });
@@ -26,7 +28,7 @@ module.exports = (app) => {
     res.redirect('/');
   });
   // Route for getting info about the user.
-  app.get('/api/user_data', (req, res) => {
+  app.post('/api/user_data', (req, res) => {
     if (!req.user) {
       res.json({});
     } else {
@@ -37,3 +39,18 @@ module.exports = (app) => {
     }
   });
 };
+
+async function getUser() {
+  try {
+    const response = await axios.get('/user?ID=12345');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+  app.get('/api/recipes/search/:searchQuery', (req, res) => {
+    console.log(req.params.searchQuery);
+    res.json({
+      msg: "why is this not working???"
+    })
+  })
+} 
