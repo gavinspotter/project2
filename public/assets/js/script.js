@@ -48,6 +48,7 @@ $('#searchButton').on('click', () => {
 
 // when clicked, will save the clicked recipe to the calendar and db
 $(document.body).on('click', '.calendar-save', (e) => {
+  // get recipe id and title from data attributes saved to the elements
   const id = e.target.getAttribute('data-recipe-id');
   const title = e.target.getAttribute('data-recipe-title');
   console.log(id);

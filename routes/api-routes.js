@@ -57,17 +57,56 @@ module.exports = (app) => {
   // Route for saving shopping lists to db
   // needs to reference user who saved it
   // this will make sure that the current user's list is displayed.
-  app.post('/api/shopping_lists', (req, res) => {
+  app.post('/api/shopping_lists/:userId/:recipeId', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.ShoppingList.create({});
+    // console.log(req.body);
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/${req.body.recipeId}/ingredientWidget.json?apiKey=${process.env.apiKey}`,
+      )
+      .then((results) => {
+        console.log(results.data);
+        results.data.ingredients.forEach((result) => {
+          db.ShoppingList.create({
+            name: result.name,
+            UserId: req.params.userId,
+          })
+            .then(() => {
+              res.status(200).json({ message: 'Items added to shopping list' });
+            })
+            .catch((err) => {
+              res.status(404).json(err);
+              console.log('db error', err);
+            });
+        });
+      })
+      .catch((err) => {
+        console.log('api error', err);
+      });
   });
   // Route for getting user's saved recipes
   // user id will be determined by who is logged in
   app.get('/api/recipes/:userId', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
+    // console.log(req, res);
     db.Recipe.findAll({
+      where: {
+        UserId: req.params.userId,
+      },
+    })
+      .then((results) => {
+        res.status(200).json(results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  // Route for getting the user's current shopping list
+  // user id will be determined by who is logged in.
+  app.get('/api/shopping_lists/:userId', (req, res) => {
+    // testing console so linter won't throw errors
+    // console.log(req, res);
+    db.ShoppingList.findAll({
       where: {
         UserId: req.params.userId,
       },
@@ -75,19 +114,12 @@ module.exports = (app) => {
       res.status(200).json(results);
     });
   });
-  // Route for getting the user's current shopping list
-  // user id will be determined by who is logged in.
-  app.get('/api/shopping_lists/:userId', (req, res) => {
-    // testing console so linter won't throw errors
-    console.log(req, res);
-    db.ShoppingList.findAll({});
-  });
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
     const query = req.params.searchQuery;
     // call getRecipes to the food api
     axios
       .get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&includeIngredients=${query}&addRecipeInformation=true&number=5&instructionsRequired=true`,
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&includeIngredients=${query}&addRecipeInformation=true&number=6&instructionsRequired=true`,
       )
       .then((results) => {
         // set up an empty array to push the data into
@@ -108,6 +140,19 @@ module.exports = (app) => {
       })
       .catch((err) => {
         res.json(err);
+      });
+  });
+  app.delete('/api/shopping_lists/:userId', (req, res) => {
+    db.ShoppingList.destroy({
+      where: {
+        UserId: req.params.userId,
+      },
+    })
+      .then(() => {
+        res.status(200).json({ message: 'it worked' });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   });
 };
