@@ -1,58 +1,37 @@
 // api call for recipes instructions and ingredients =//
 
-// let user = {};
-
-// const createCards = (title, recipe, id) => {
-//   const cardEl = $('<div>', {
-//     class: 'card',
-//   }).data('id', id);
-//   const cardBodyEl = $('<div>', {
-//     class: 'card-body',
-//   });
-//   const cardTitleEl = $('<h5>', {
-//     class: 'card-title',
-//   }).text(title);
-//   const cardTextEl = $('<div>', {
-//     class: 'card-text',
-//   }).text(recipe);
-//   cardBodyEl.append(cardTitleEl);
-//   cardBodyEl.append(cardTextEl);
-//   cardEl.append(cardBodyEl);
-//   $('.col-md-9').append(cardEl);
-// };
-// get length of objects
-// const getInstructions = async (id) => {
-//   const res = await $.get(
-//     `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${apiKey}`,
-//   );
-//   console.log('getinstructions', res);
-// };
-
-// const getIngredients = async (id) => {
-//   const res = await $.get(
-//     `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${apiKey}`,
-//   );
-//   console.log('getingredients', res);
-//   res.ingredients.forEach((ingredient) => {
-//     createCards(ingredient.name, ingredient.amount.us.value, id);
-//     console.log(id);
-//   });
-// };
-
-// const getRecipes = async (query) => {
-//   const res = await $.get(
-//     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&includeIngredients&number=1`,
-//   );
-//   // res.results.forEach((result) => getInstructions(result.id));
-//   // res.results.forEach((result) => getIngredients(result.id));
-//   console.log(res);
-// };
+const createCards = (title, imageSrc, id) => {
+  const cardEl = $('<div>', {
+    style: 'width: 18rem;',
+    class: 'card',
+  });
+  const cardBodyEl = $('<div>', {
+    class: 'card-body',
+  });
+  const cardImgEl = $('<img>', {
+    class: 'card-img-top',
+    src: imageSrc,
+  });
+  const cardTitleEl = $('<h5>', {
+    class: 'card-title',
+  }).text(title);
+  const saveBtnEl = $('<button>', {
+    class: 'btn btn-primary',
+    'data-recipe-id': id,
+  }).text('Save to Calendar');
+  cardBodyEl.append(cardImgEl, cardTitleEl, saveBtnEl);
+  cardEl.append(cardBodyEl);
+  $('.col-md-9').append(cardEl);
+};
 
 $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
   // getRecipes(searchQuery);
-  $.get(`/api/recipes/search/${searchQuery}`).then((res) => {
-    console.log(res);
+  $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
+    console.log(results);
+    results.forEach((result) => {
+      createCards(result.title, result.image, result.id);
+    });
   });
 });
 
