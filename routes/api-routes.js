@@ -1,5 +1,7 @@
+const axios = require('axios');
 const passport = require('../config/passport');
 const db = require('../models');
+require('dotenv').config();
 
 module.exports = (app) => {
   // If the user has valid credentials, they'll be allowed to access restricted routes
@@ -65,9 +67,57 @@ module.exports = (app) => {
     db.ShoppingList.findAll({});
   });
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
-    console.log(req.params.searchQuery);
-    res.json({
-      msg: 'masdf',
-    });
+    const query = req.params.searchQuery;
+    // call getRecipes to the food api
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&includeIngredients=${query}&addRecipeInformation=true&number=5&instructionsRequired=true`,
+      )
+      .then((results) => {
+        // set up an empty array to push the data into
+        const recipesArray = [];
+        // get recipe data from api call
+        const recipes = results.data.results;
+        recipes.forEach((recipe) => {
+          // push each recipe's id, title, and instructions to the array as an object
+          recipesArray.push({
+            id: recipe.id,
+            title: recipe.title,
+            instructions: recipe.analyzedInstructions,
+          });
+        });
+        // send the array to the front end
+        res.json(recipesArray);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
   });
 };
+
+// const getIngredients = async (id) => {
+//   const results = await axios.get(
+//     `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.apiKey}`
+//   );
+//   return results.data;
+//   // console.log('getingredients', result.data);
+// };
+
+// const getInstructions = async (id) => {
+//   const results = await axios.get(
+//     `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`
+//   );
+//   return results.data;
+// };
+// const getRecipes = async (query) => {
+//   const results = await axios.get(
+//     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&query=${query}&includeIngredients&number=1`
+//   );
+//   results.data.results.forEach((result) => {
+//     getInstructions(result.id);
+//     getIngredients(result.id);
+//   });
+//   // result.data.results.forEach((result) => {
+
+//   // });
+// };
