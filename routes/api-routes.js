@@ -41,8 +41,18 @@ module.exports = (app) => {
   // needs to reference user who saved it
   app.post('/api/recipes', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.Recipe.create({});
+    console.log(req.body);
+    db.Recipe.create({
+      name: req.body.title,
+      recipeId: req.body.recipeId,
+      UserId: req.body.userId,
+    })
+      .then(() => {
+        res.status(200).json({ message: 'Recipe added' });
+      })
+      .catch((err) => {
+        res.status(404).json(err);
+      });
   });
   // Route for saving shopping lists to db
   // needs to reference user who saved it
@@ -54,14 +64,20 @@ module.exports = (app) => {
   });
   // Route for getting user's saved recipes
   // user id will be determined by who is logged in
-  app.get('/api/recipes/:user_id', (req, res) => {
+  app.get('/api/recipes/:userId', (req, res) => {
     // testing console so linter won't throw errors
     console.log(req, res);
-    db.Recipe.findAll({});
+    db.Recipe.findAll({
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.status(200).json(results);
+    });
   });
   // Route for getting the user's current shopping list
   // user id will be determined by who is logged in.
-  app.get('/api/shopping_lists/:user_id', (req, res) => {
+  app.get('/api/shopping_lists/:userId', (req, res) => {
     // testing console so linter won't throw errors
     console.log(req, res);
     db.ShoppingList.findAll({});
