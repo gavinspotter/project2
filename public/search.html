@@ -1,69 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>FoodGuru</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Hello, world!</title>
-</head>
-
-<body>
-  <div class="container">
-    <!-- navbar with account details-->
-    <nav class="navbar navbar-expand-lg" id="nav">
-      <a class="navbar-brand text-white" href="#">FOOD SHOP</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto w-100 justify-content-end">
-          <li class="nav-item">
-          <a class="nav-link text-white" href="/saved">My Calendar</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link text-white" href="/logout">Logout</a>
-        </li> 
-        </div>
-      </div>
-    </nav>
-    <!--container-->
+  <body>
     <div class="container">
-      <!--container-->
-      <div class="container">
-        <div class="row">
-          <!-- 3 col sidebar with search form -->
-          <!-- sidebar with search form -->
-
-          <div class="col-md-3">
-            <div class="input-group mb-3">
+      <!-- navbar with account details-->
+      <nav class="navbar navbar-expand-lg" id="nav">
+        <a class="navbar-brand text-black" href="#">FOODGURU</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link text-black" href="/saved">My Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black" href="/logout">Logout</a>
+            </li>
+          </div>
+        </div>
+      </nav>
+    </div>
+      <div class="container-fluid">
+        <div class="row rounded search-image">
+          <div class="col-md-12 search-image-inside">
+            <h1 id="jumbotron-header">FOODGURU</h1>
+            <p>Get started by searching the recipe library</p>
+            
+            <div class="input-group" id="searchBox">
               <input
                 type="text"
                 class="form-control"
-                placeholder="recipe name"
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <div class="input-group-append">
+              <div class="input-group-append ">
                 <button
-                  class="btn btn-outline-secondary"
+                  class="btn btn-outline-secondary bg-white"
                   type="button"
                   id="searchButton"
                 >
-                  Search
+                </i>Search
                 </button>
               </div>
             </div>
           </div>
-          <div class="col-md-9">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 rounded" id="resultsDiv">
+            <div class="card" style="width: 18rem;" id="resultsCard">
+              <img
+                src="http://placekitten.com/200/200"
+                class="card-img-top"
+                alt="..."
+              />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
@@ -77,13 +96,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <!--    sidebar with search form -->
-      <!-- 9 col card for result -->
-    </div>
-    <div class="user-greeting">
-      <p class="user-email"></p>
-    </div>
+      
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

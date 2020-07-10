@@ -7,5 +7,83 @@ body {
 }
 
 #nav {
-  background-color: #ffde59;
+  color: black;
+}
+
+#searchDiv {
+  margin-top: 5px;
+}
+
+.rounded {
+  border-radius: 25px;
+}
+
+#searchBox {
+  padding: 30px;
+}
+
+/* #resultsDiv {
+  background-image: linear-gradient(to right, #798be9, #bcc7f9);
+  margin-top: 5px;
+  margin-left: 5px;
+
+} */
+
+#resultsCard {
+  margin: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-image {
+  margin-top: 5px;
+  height: 600px;
+  padding: 10rem 5%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.45);
+}
+.search-image:after {
+  content: '';
+  position: absolute;
+  background-image: url('https://cdn.vox-cdn.com/thumbor/6AKlzeBJIHd0v-68M0Hzli-4w6w=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/7138197/20160920-untitled-Mama_Guidera_chicken_parm.0.jpg');
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.7;
+  background-position-y: center;
+  text-align: center;
+}
+
+.search-image-inside {
+  text-align: center;
+  padding: 20px;
+  margin-top: 0px;
+  color: white;
+}
+
+#searchButton {
+}
+
+#jumbotron-header {
+  text-align: center;
+  font-size: 100px;
+  letter-spacing: 15px;
+}
+.search-bar {
+  text-align: center;
+}
+
+#searchBox {
+  top: 60%;
+  max-width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+.row-1 {
+  width: 78%;
 }

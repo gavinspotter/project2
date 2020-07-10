@@ -12,7 +12,7 @@ passport.use(
       // Use findOne method to locate user when theres a sign in attempt.
       db.User.findOne({
         where: {
-          email,
+          email: email
         },
       }).then((dbUser) => {
         //   If we're unable to find the users email.
