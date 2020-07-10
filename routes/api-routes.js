@@ -1,7 +1,7 @@
+const axios = require('axios');
 const passport = require('../config/passport');
 const db = require('../models');
-const axios = require('axios');
-require("dotenv").config();
+require('dotenv').config();
 
 
 module.exports = (app) => {
@@ -30,7 +30,7 @@ module.exports = (app) => {
   // Route for getting info about the user.
   app.post('/api/user_data', (req, res) => {
     if (!req.user) {
-      res.json({});       
+      res.json({});
     } else {
       res.json({
         email: req.user.email,
@@ -70,6 +70,7 @@ module.exports = (app) => {
 
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
     const query = req.params.searchQuery;
+    console.log(res);
     // call getRecipes to the food api
     getRecipes(query);
   });
@@ -85,7 +86,7 @@ const getInstructions = async (id) => {
   const res = await axios.get(
     `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`
   );
-  console.log(`instructions`, res.data);
+  console.log('instructionn', res.data);
 };
 const getRecipes = async (query) => {
   const res = await axios.get(
