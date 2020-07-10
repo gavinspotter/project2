@@ -1,5 +1,8 @@
+const axios = require('axios');
 const passport = require('../config/passport');
 const db = require('../models');
+require('dotenv').config();
+
 
 module.exports = (app) => {
   // If the user has valid credentials, they'll be allowed to access restricted routes
@@ -64,10 +67,33 @@ module.exports = (app) => {
     console.log(req, res);
     db.ShoppingList.findAll({});
   });
+
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
-    console.log(req.params.searchQuery);
-    res.json({
-      msg: 'masdf',
-    });
+    const query = req.params.searchQuery;
+    console.log(res);
+    // call getRecipes to the food api
+    getRecipes(query);
   });
+};
+
+const getIngredients = async (id) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.apiKey}`
+  );
+  console.log('getingredients', res.data);
+};
+const getInstructions = async (id) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`
+  );
+  console.log('instructionn', res.data);
+};
+const getRecipes = async (query) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&query=${query}&includeIngredients&number=1`
+  );
+  res.data.results.forEach((result) => {
+    getInstructions(result.id);
+  });
+  res.data.results.forEach((result) => getIngredients(result.id));
 };
