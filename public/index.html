@@ -1,208 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Hello, world!</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <!-- jumbotron -->
-      <div
-        class="jumbotron"
-        style="
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- jumbotron -->
+    <div class="jumbotron" style="
           background-image: url('././assets/images/foodshopLogo.png');
           /* background-size: cover; */
           background-position: center;
           height: 500px;
-        "
-      >
-        <div class="container">
-          <nav class="navbar navbar-light bg-transparent float-right">
-            <form>
-              <button
-                class="btn btn-outline-warning btn-lg text-white border-white font-weight-bolder p-2"
-                type="button"
-                id="signUpButton"
-                data-toggle='modal'
-                data-target="#signUpModal"
-              >
-                Sign Up
-              </button>
-              <button class="btn btn-outline-warning btn-lg text-white border-white font-weight-bolder" type="button" id="loginButton" data-toggle='modal' data-target="#myModal">
-                Login
-              </button>
-            </form>
-          </nav>
-        </div>
-          <div class="containerv">
-              <div id="myModal" class="modal fade">
-                <div class="modal-dialog modal-login">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title w-100 text-center">Member Login</h4>	
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <p class="text-center font-weight-lighter">Please enter your email address and password</p>
-                      <form class="login">
-                        <div class="form-group">
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="email-input"
-                            placeholder="Email"
-                            required="required"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <input type="password" class="form-control" id="password-input" placeholder="Password" required="required">	
-                        </div>        
-                          <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">Login</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>   
-          </div>   
-            
-            <div class="container">
-              <div id="signUpModal" class="modal fade">
-                <div class="modal-dialog modal-login">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title w-100 text-center">New Member Sign Up</h4>	
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <p class="text-center font-weight-lighter">Please enter a valid email address and password</p>
-                      <form class="signup">
-                        <div class="form-group">
-                          <input type="email" class="form-control" id="email-signup" placeholder="Email" required="required">		
-                        </div>
-                        <div class="form-group">
-                          <input type="password" class="form-control" id="password-signup" placeholder="Password" required="required">	
-                        </div>        
-                          <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">Sign Up</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>     
-        
-          <!-- <h1 class="display-4">Fluid jumbotron</h1>
-          <p class="lead text-white">
-            the ultimate tool for recipe and grocery planning
-          </p> -->
-        </div>
-      </div>
-
-      <!--intro paragraph-->
-      <div class="container" style="padding: 45px;">
-        <div class="row">
-          <div class="col-2"></div>
-          <div class="col-md-8 col-sm-12">
-            <h5 class="h5-header" style="text-align: center; color: #cac9c9;">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </h5>
-          </div>
-          <div class="col-2"></div>
-        </div>
-      </div>
-
-      <!--cards for samples-->
+        ">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-12">
-            <div class="card text-center border-0" style="width: 18rem;">
-              <img
-                src="././assets/images/list.png"
-                class="mx-auto d-block"
-                alt="..."
-                style="width: 50px;"
-              />
-              <div class="card-body">
-                <h5 class="card-title" style="color: #545454;">
-                  Search Recipes
-                </h5>
-                <p class="card-text" style="color: #cac9c9;">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo.
-                </p>
+        <nav class="navbar navbar-light bg-transparent float-right">
+          <form>
+            <button class="btn btn-outline-warning btn-lg text-white border-white font-weight-bolder p-2" type="button"
+              id="signUpButton" data-toggle='modal' data-target="#signUpModal">
+              Sign Up
+            </button>
+            <button class="btn btn-outline-warning btn-lg text-white border-white font-weight-bolder" type="button"
+              id="loginButton" data-toggle='modal' data-target="#myModal">
+              Login
+            </button>
+          </form>
+        </nav>
+      </div>
+      <div class="containerv">
+        <div id="myModal" class="modal fade">
+          <div class="modal-dialog modal-login">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title w-100 text-center">Member Login</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                <p class="text-center font-weight-lighter">Please enter your email address and password</p>
+                <form class="login">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="email-input" placeholder="Email" required="required" />
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password-input" placeholder="Password"
+                      required="required">
+                  </div>
+                  <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">Login</button>
+                </form>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-md-4 col-sm-12">
-            <div class="card text-center border-0" style="width: 18rem;">
-              <img
-                src="././assets/images/calendar.png"
-                class="mx-auto d-block"
-                alt="..."
-                style="width: 50px;"
-              />
-              <div class="card-body">
-                <h5 class="card-title" style="color: #545454;">
-                  Plan Meals
-                </h5>
-                <p class="card-text" style="color: #cac9c9;">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo.
-                </p>
-              </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="signUpModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title w-100 text-center">New Member Sign Up</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-12">
-            <div class="card text-center border-0" style="width: 18rem;">
-              <img
-                src="././assets/images/grocery.png"
-                class="mx-auto d-block"
-                alt="..."
-                style="width: 50px;"
-              />
-              <div class="card-body">
-                <h5 class="card-title" style="color: 545454;">
-                  Grocery Lists
-                </h5>
-                <p class="card-text" style="color: #cac9c9;">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo.
-                </p>
-              </div>
+            <div class="modal-body">
+              <p class="text-center font-weight-lighter">Please enter a valid email address and password</p>
+              <form class="signup">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email-signup" placeholder="Email" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password-signup" placeholder="Password"
+                    required="required">
+                </div>
+                <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">Sign Up</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- <h1 class="display-4">Fluid jumbotron</h1>
+          <p class="lead text-white">
+            the ultimate tool for recipe and grocery planning
+          </p> -->
+  </div>
+  </div>
+
+  <!--intro paragraph-->
+  <div class="container" style="padding: 45px;">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-md-8 col-sm-12">
+        <h5 class="h5-header" style="text-align: center; color: #cac9c9;">
+          Hello Friends! Welcome to Food Guru. Let us make meal planning less hectic for you and your family!
+        </h5>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+
+  <!--cards for samples-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div class="card text-center border-0" style="width: 18rem;">
+          <img src="././assets/images/list.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+          <div class="card-body">
+            <h5 class="card-title" style="color: #545454;">
+              Search Recipes
+            </h5>
+            <p class="card-text" style="color: #cac9c9;">
+              Not sure what to make or how to make it? let Food Guru show you the way with our search recipes section.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div class="card text-center border-0" style="width: 18rem;">
+          <img src="././assets/images/calendar.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+          <div class="card-body">
+            <h5 class="card-title" style="color: #545454;">
+              Plan Meals
+            </h5>
+            <p class="card-text" style="color: #cac9c9;">
+              Organization is key when it comes to meal planning. Food Guru will keep all meal ideas in a weekly
+              calender.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="card text-center border-0" style="width: 18rem;">
+          <img src="././assets/images/grocery.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+          <div class="card-body">
+            <h5 class="card-title" style="color: 545454;">
+              Grocery Lists
+            </h5>
+            <p class="card-text" style="color: #cac9c9;">
+              Food Guru will keep all your required items to make a yummy meal in one place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

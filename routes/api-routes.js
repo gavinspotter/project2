@@ -1,6 +1,7 @@
 const passport = require('../config/passport');
 const db = require('../models');
 const axios = require('axios');
+require("dotenv").config();
 
 
 module.exports = (app) => {
@@ -29,7 +30,7 @@ module.exports = (app) => {
   // Route for getting info about the user.
   app.post('/api/user_data', (req, res) => {
     if (!req.user) {
-      res.json({});
+      res.json({});       
     } else {
       res.json({
         email: req.user.email,
@@ -66,25 +67,32 @@ module.exports = (app) => {
     console.log(req, res);
     db.ShoppingList.findAll({});
   });
+
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
-    console.log(req.params.searchQuery);
-    res.json({
-      msg: 'masdf',
-    });
+    const query = req.params.searchQuery;
+    // call getRecipes to the food api
+    getRecipes(query);
   });
 };
 
-async function getUser() {
-  try {
-    const response = await axios.get('/user?ID=12345');
-    console.log(response);
-  } catch (error) {
-    console.error(error);
-  }
-  app.get('/api/recipes/search/:searchQuery', (req, res) => {
-    console.log(req.params.searchQuery);
-    res.json({
-      msg: "why is this not working???"
-    })
-  })
-} 
+const getIngredients = async (id) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.apiKey}`
+  );
+  console.log('getingredients', res.data);
+};
+const getInstructions = async (id) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`
+  );
+  console.log(`instructions`, res.data);
+};
+const getRecipes = async (query) => {
+  const res = await axios.get(
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&query=${query}&includeIngredients&number=1`
+  );
+  res.data.results.forEach((result) => {
+    getInstructions(result.id);
+  });
+  res.data.results.forEach((result) => getIngredients(result.id));
+};
