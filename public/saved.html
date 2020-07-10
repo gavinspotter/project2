@@ -40,11 +40,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
-            <a class="nav-link text-white" href="/search">Recipe Search</a>
+              <a class="nav-link text-white" href="/search">Recipe Search</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link text-white" href="/logout">Logout</a>
-        </li> 
+              <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>
           </div>
         </div>
       </nav>
@@ -244,6 +244,15 @@
                   data-toggle='modal' data-target="#dessertModal">Select Recipe</button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="row saved-recipes">
+            <button class="delete-list btn btn-primary">Clear List</button>
+            <div class="row">
+              <div class="col-md-3 test-list">
+                <ul class="list-group list-group-flush test-list-ul"></ul>
+              </div>
+              <div class="col-md-9 test-recipes"></div>
             </div>
           </div>
         </div>
@@ -464,6 +473,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/saved.js"></script>
   </body>
 </html>
