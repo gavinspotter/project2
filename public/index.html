@@ -1,156 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>FoodShop</title>
-  </head>
-  <!-- start -->
-  <body>
-    <div class="container">
-      <!-- navbar with account details-->
-      <nav class="navbar navbar-expand-lg" id="nav">
-        <form>
-          <button
-            class="btn btn-outline-warning btn-lg border-white font-weight-bolder p-2"
-            type="button"
-            id="signUpButton"
-            data-toggle="modal"
-            data-target="#signUpModal"
-          >
-            Sign Up
-          </button>
-          <button
-            class="btn btn-outline-warning btn-lg border-white font-weight-bolder"
-            type="button"
-            id="loginButton"
-            data-toggle="modal"
-            data-target="#myModal"
-          >
-            Login
-          </button>
-        </form>
-      </nav>
 
-      <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-login">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title w-100 text-center">Member Login</h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-hidden="true"
-              >
-                &times;
-              </button>
-            </div>
-            <div class="modal-body">
-              <p class="text-center font-weight-lighter">
-                Please enter your email address and password
-              </p>
-              <form class="login">
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email-input"
-                    placeholder="Email"
-                    required="required"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password-input"
-                    placeholder="Password"
-                    required="required"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-warning btn-lg btn-block login-btn text-white"
-                >
-                  Login
-                </button>
-              </form>
-            </div>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>FoodShop</title>
+</head>
+<!-- start -->
+
+<body>
+  <div class="container">
+    <!-- navbar with account details-->
+    <nav class="navbar navbar-expand-lg" id="nav">
+      <form>
+        <button class="btn btn-outline-warning btn-lg border-white font-weight-bolder p-2" type="button"
+          id="signUpButton" data-toggle="modal" data-target="#signUpModal">
+          Sign Up
+        </button>
+        <button class="btn btn-outline-warning btn-lg border-white font-weight-bolder" type="button" id="loginButton"
+          data-toggle="modal" data-target="#myModal">
+          Login
+        </button>
+      </form>
+    </nav>
+
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog modal-login">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title w-100 text-center">Member Login</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              &times;
+            </button>
           </div>
-        </div>
-      </div>
-
-      <div id="signUpModal" class="modal fade">
-        <div class="modal-dialog modal-login">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title w-100 text-center">New Member Sign Up</h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-hidden="true"
-              >
-                &times;
+          <div class="modal-body">
+            <p class="text-center font-weight-lighter">
+              Please enter your email address and password
+            </p>
+            <form class="login">
+              <div class="form-group">
+                <input type="email" class="form-control" id="email-input" placeholder="Email" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="password-input" placeholder="Password"
+                  required="required" />
+              </div>
+              <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">
+                Login
               </button>
-            </div>
-            <div class="modal-body">
-              <p class="text-center font-weight-lighter">
-                Please enter a valid email address and password
-              </p>
-              <form class="signup">
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email-signup"
-                    placeholder="Email"
-                    required="required"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password-signup"
-                    placeholder="Password"
-                    required="required"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-warning btn-lg btn-block login-btn text-white"
-                >
-                  Sign Up
-                </button>
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row rounded search-image">
-        <div class="col-md-12 search-image-inside">
-          <h1 id="jumbotron-header">FOODGURU</h1>
+
+    <div id="signUpModal" class="modal fade">
+      <div class="modal-dialog modal-login">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title w-100 text-center">New Member Sign Up</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text-center font-weight-lighter">
+              Please enter a valid email address and password
+            </p>
+            <form class="signup">
+              <div class="form-group">
+                <input type="email" class="form-control" id="email-signup" placeholder="Email" required="required" />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="password-signup" placeholder="Password"
+                  required="required" />
+              </div>
+              <button type="submit" class="btn btn-warning btn-lg btn-block login-btn text-white">
+                Sign Up
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row rounded search-image">
+      <div class="col-md-12 search-image-inside">
+        <h1 id="jumbotron-header">FOOD GURU</h1>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  </div>
+
+  <!--intro paragraph-->
+  <div class="container" style="padding: 45px;">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-md-8 col-sm-12">
+        <h5 class="h5-header" style="text-align: center; color: #cac9c9;">
+          Hello Friends! Welcome to Food Guru. Let us make meal Planning less hectic for you and your family!
+        </h5>
       </div>
       <div class="col-2"></div>
     </div>
@@ -203,22 +160,16 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/signup.js"></script>
-  </body>
+</body>
+
 </html>
