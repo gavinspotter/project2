@@ -23,12 +23,18 @@ const createCards = (title, day, id) => {
   cardEl.append(cardBodyEl);
   $('.test-recipes').append(cardEl);
 };
-const createList = (item, id) => {
+const createList = (item, id, userId) => {
   // create new li for item
   const liEl = $('<li>', {
     class: 'list-group-item',
-    'data-id': id,
   }).text(item);
+  const buttonEl = $('<button>', {
+    class: 'btn btn-primary remove-item-btn',
+    'data-id': id,
+    'data-userId': userId,
+  }).text('Remove');
+  // append the button to the li
+  liEl.append(buttonEl);
   // append the li to the ul element on the page
   $('.test-list-ul').append(liEl);
 };
@@ -37,7 +43,7 @@ const getList = (userData) => {
     // $('.test-list-el').empty;
     results.forEach((result) => {
       // console.log(result.name);
-      createList(result.name, result.id);
+      createList(result.name, result.id, userData.id);
     });
   });
 };
@@ -87,6 +93,19 @@ $(document.body).on('click', '.add-btn', (e) => {
   // api put request to update recipe day
 });
 
+// set up delete route when remove button is clicked
+// deletes single item from list
+$(document.body).on('click', '.remove-item-btn', (e) => {
+  const id = e.target.getAttribute('data-id');
+  $.ajax({
+    url: `/api/shopping_lists/${user.id}/${id}`,
+    type: 'DELETE',
+  }).then(() => {
+    console.log('success');
+    pageLoad();
+  });
+});
+
 // button to clear the shopping list, removes list items from db
 $('.delete-list').on('click', () => {
   console.log('clicked');
@@ -98,4 +117,5 @@ $('.delete-list').on('click', () => {
     pageLoad();
   });
 });
+
 pageLoad();

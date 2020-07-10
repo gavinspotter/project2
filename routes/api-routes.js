@@ -114,6 +114,7 @@ module.exports = (app) => {
       res.status(200).json(results);
     });
   });
+  // route for searching for recipes
   app.get('/api/recipes/search/:searchQuery', (req, res) => {
     const query = req.params.searchQuery;
     // call getRecipes to the food api
@@ -142,10 +143,26 @@ module.exports = (app) => {
         res.json(err);
       });
   });
+  // route for deleting entire shopping list for the user
   app.delete('/api/shopping_lists/:userId', (req, res) => {
     db.ShoppingList.destroy({
       where: {
         UserId: req.params.userId,
+      },
+    })
+      .then(() => {
+        res.status(200).json({ message: 'it worked' });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  // route for deleting single item from user's list
+  app.delete('/api/shopping_lists/:userId/:id', (req, res) => {
+    db.ShoppingList.destroy({
+      where: {
+        UserId: req.params.userId,
+        id: req.params.id,
       },
     })
       .then(() => {
