@@ -42,12 +42,6 @@ body {
   padding: 30px;
 }
 
-/* #resultsDiv {
-  background-image: linear-gradient(to right, #798be9, #bcc7f9);
-  margin-top: 5px;
-  margin-left: 5px;
-
-} */
 
 #resultsCard {
   margin: 5px;
@@ -62,6 +56,8 @@ body {
   padding: 10rem 5%;
   position: relative;
   background: rgba(0, 0, 0, 0.45);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .search-image:after {
   content: '';
@@ -75,6 +71,8 @@ body {
   opacity: 0.7;
   background-position-y: center;
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .search-image-inside {
@@ -97,7 +95,7 @@ body {
 }
 
 #searchBox {
-  top: 60%;
+  top: 45%;
   max-width: 50%;
   margin-left: 25%;
   margin-right: 25%;
@@ -108,4 +106,12 @@ body {
   width: 78%;
 }
 
+#logo {
+width: 200px;
+margin-top: 20px;
 
+}
+
+#signUpButton {
+  font-family:  'Montserrat', sans-serif;
+}
