@@ -173,30 +173,3 @@ module.exports = (app) => {
       });
   });
 };
-
-// const getIngredients = async (id) => {
-//   const results = await axios.get(
-//     `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.apiKey}`
-//   );
-//   return results.data;
-//   // console.log('getingredients', result.data);
-// };
-
-// const getInstructions = async (id) => {
-//   const results = await axios.get(
-//     `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.apiKey}`
-//   );
-//   return results.data;
-// };
-// const getRecipes = async (query) => {
-//   const results = await axios.get(
-//     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&query=${query}&includeIngredients&number=1`
-//   );
-//   results.data.results.forEach((result) => {
-//     getInstructions(result.id);
-//     getIngredients(result.id);
-//   });
-//   // result.data.results.forEach((result) => {
-
-//   // });
-// };
