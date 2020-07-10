@@ -29,5 +29,6 @@ module.exports = {
     'no-use-before-define': 'off',
     'object-shorthand': 'off',
     'comma-dangle': 'off',
+    'no-shadow': 'off',
   },
 };
