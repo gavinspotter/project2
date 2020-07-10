@@ -21,14 +21,16 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>FoodShop</title>
   </head>
-  <!-- start -->
+
   <body>
     <div class="container">
       <!-- navbar with account details-->
-      <nav class="navbar navbar-expand-lg" id="nav">
-        <form>
+
+      <nav class="navbar navbar-light bg-transparent">
+        <a class="navbar-brand text-warning">FOODGURU</a>
+        <form class="form-inline">
           <button
-            class="btn btn-outline-warning btn-lg border-white font-weight-bolder p-2"
+            class="btn btn-outline-warning btn-lg border-white font-weight-bolder my-2 my-sm-0"
             type="button"
             id="signUpButton"
             data-toggle="modal"
@@ -37,7 +39,7 @@
             Sign Up
           </button>
           <button
-            class="btn btn-outline-warning btn-lg border-white font-weight-bolder"
+            class="btn btn-outline-warning btn-lg border-white font-weight-bolder my-2 my-sm-0"
             type="button"
             id="loginButton"
             data-toggle="modal"
@@ -48,6 +50,7 @@
         </form>
       </nav>
 
+      <!--Modal for Login-->
       <div id="myModal" class="modal fade">
         <div class="modal-dialog modal-login">
           <div class="modal-content">
@@ -96,7 +99,7 @@
           </div>
         </div>
       </div>
-
+      <!--Modal for SignUp-->
       <div id="signUpModal" class="modal fade">
         <div class="modal-dialog modal-login">
           <div class="modal-content">
@@ -146,10 +149,13 @@
         </div>
       </div>
     </div>
+
+    <!--Jumbotron-->
     <div class="container-fluid">
       <div class="row rounded search-image">
         <div class="col-md-12 search-image-inside">
           <h1 id="jumbotron-header">FOODGURU</h1>
+          <img src="./assets/images/logo.png" id="logo" />
         </div>
       </div>
       <div class="col-2"></div>
