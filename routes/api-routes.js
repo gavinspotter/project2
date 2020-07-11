@@ -1,5 +1,7 @@
+const axios = require('axios');
 const passport = require('../config/passport');
 const db = require('../models');
+require('dotenv').config();
 
 module.exports = (app) => {
   // If the user has valid credentials, they'll be allowed to access restricted routes
@@ -39,35 +41,135 @@ module.exports = (app) => {
   // needs to reference user who saved it
   app.post('/api/recipes', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.Recipe.create({});
+    console.log(req.body);
+    db.Recipe.create({
+      name: req.body.title,
+      recipeId: req.body.recipeId,
+      UserId: req.body.userId,
+    })
+      .then(() => {
+        res.status(200).json({ message: 'Recipe added' });
+      })
+      .catch((err) => {
+        res.status(404).json(err);
+      });
   });
   // Route for saving shopping lists to db
   // needs to reference user who saved it
   // this will make sure that the current user's list is displayed.
-  app.post('/api/shopping_lists', (req, res) => {
+  app.post('/api/shopping_lists/:userId/:recipeId', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.ShoppingList.create({});
+    // console.log(req.body);
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/${req.body.recipeId}/ingredientWidget.json?apiKey=${process.env.apiKey}`
+      )
+      .then((results) => {
+        console.log(results.data);
+        results.data.ingredients.forEach((result) => {
+          db.ShoppingList.create({
+            name: result.name,
+            UserId: req.params.userId,
+          })
+            .then(() => {
+              res.status(200).json({ message: 'Items added to shopping list' });
+            })
+            .catch((err) => {
+              res.status(404).json(err);
+              console.log('db error', err);
+            });
+        });
+      })
+      .catch((err) => {
+        console.log('api error', err);
+      });
   });
   // Route for getting user's saved recipes
   // user id will be determined by who is logged in
-  app.get('/api/recipes/:user_id', (req, res) => {
+  app.get('/api/recipes/:userId', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.Recipe.findAll({});
+    // console.log(req, res);
+    db.Recipe.findAll({
+      where: {
+        UserId: req.params.userId,
+      },
+    })
+      .then((results) => {
+        res.status(200).json(results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
   // Route for getting the user's current shopping list
   // user id will be determined by who is logged in.
-  app.get('/api/shopping_lists/:user_id', (req, res) => {
+  app.get('/api/shopping_lists/:userId', (req, res) => {
     // testing console so linter won't throw errors
-    console.log(req, res);
-    db.ShoppingList.findAll({});
-  });
-  app.get('/api/recipes/search/:searchQuery', (req, res) => {
-    console.log(req.params.searchQuery);
-    res.json({
-      msg: 'masdf',
+    // console.log(req, res);
+    db.ShoppingList.findAll({
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.status(200).json(results);
     });
+  });
+  // route for searching for recipes
+  app.get('/api/recipes/search/:searchQuery', (req, res) => {
+    const query = req.params.searchQuery;
+    // call getRecipes to the food api
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.apiKey}&includeIngredients=${query}&addRecipeInformation=true&number=6&instructionsRequired=true`
+      )
+      .then((results) => {
+        // set up an empty array to push the data into
+        const recipesArray = [];
+        // get recipe data from api call
+        const recipes = results.data.results;
+        recipes.forEach((recipe) => {
+          // push each recipe's id, title, and instructions to the array as an object
+          recipesArray.push({
+            id: recipe.id,
+            title: recipe.title,
+            instructions: recipe.analyzedInstructions,
+            image: recipe.image,
+          });
+        });
+        // send the array to the front end
+        res.json(recipesArray);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
+  // route for deleting entire shopping list for the user
+  app.delete('/api/shopping_lists/:userId', (req, res) => {
+    db.ShoppingList.destroy({
+      where: {
+        UserId: req.params.userId,
+      },
+    })
+      .then(() => {
+        res.status(200).json({ message: 'it worked' });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  // route for deleting single item from user's list
+  app.delete('/api/shopping_lists/:userId/:id', (req, res) => {
+    db.ShoppingList.destroy({
+      where: {
+        UserId: req.params.userId,
+        id: req.params.id,
+      },
+    })
+      .then(() => {
+        res.status(200).json({ message: 'it worked' });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };

@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [1],
       },
     },
-    details: {
-      type: DataTypes.TEXT,
+    recipeId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      unique: true,
       validate: {
         len: [1],
       },
