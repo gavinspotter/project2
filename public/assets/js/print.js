@@ -1,6 +1,6 @@
 // code referenced from https://codepen.io/clagosv/pen/YjQdao
 
-$(document).ready(() => {
+// $(document).ready(() => {
   document.getElementById('btnPrint').onclick = () => {
     printElement(document.getElementById('printThis'));
   };
@@ -19,4 +19,4 @@ $(document).ready(() => {
     $printSection.appendChild(domClone);
     window.print();
   }
-});
+// });

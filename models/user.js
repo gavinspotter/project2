@@ -1,33 +1,44 @@
-module.exports = (sequelize, DataTypes) => {
+// Require bcrypt in order to salt hash user passwords
+const bcrypt = require('bcryptjs');
+// Wrap user model in module.exports
+module.exports = function (sequelize, DataTypes) {
+  // Add email and password columns to User table.
   const User = sequelize.define('User', {
-    // user will have a username, can't be null, must not be a duplicate
-    // and must be between 1 and 20 characters
-    username: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        len: [1, 20],
+        isEmail: true,
       },
-      // user must have a password as well
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   });
-  // associate the added user to their posts and saved recipes
   User.associate = (models) => {
     User.hasMany(models.Post, {
-      // if the user is deleted, their posts will be deleted as well
       onDelete: 'cascade',
     });
   };
   User.associate = (models) => {
     User.hasMany(models.Recipe, {
-      // if the user is deleted, their recipes will be deleted as well
       onDelete: 'cascade',
     });
   };
+  // Method will check if password entered by user
+  //   can be compared to hashed password in database.
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Automatic method that will hash a users password before their account is created.
+  User.addHook('beforeCreate', (user) => {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null,
+    );
+  });
   return User;
 };
