@@ -1,3 +1,22 @@
+@media screen {
+  #printSection {
+      display: none;
+  }
+}
+@media print {
+  body * {
+    visibility:hidden;
+  }
+  #printSection, #printSection * {
+    visibility:visible;
+  }
+  #printSection {
+    position:absolute;
+    left:0;
+    top:0;
+  }
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -22,13 +41,6 @@ body {
   padding: 30px;
 }
 
-/* #resultsDiv {
-  background-image: linear-gradient(to right, #798be9, #bcc7f9);
-  margin-top: 5px;
-  margin-left: 5px;
-
-} */
-
 #resultsCard {
   margin: 5px;
   text-align: center;
@@ -42,6 +54,8 @@ body {
   padding: 10rem 5%;
   position: relative;
   background: rgba(0, 0, 0, 0.45);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .search-image:after {
   content: '';
@@ -55,6 +69,8 @@ body {
   opacity: 0.7;
   background-position-y: center;
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .search-image-inside {
@@ -64,11 +80,7 @@ body {
   color: white;
 }
 
-#searchButton {
-}
-
 #jumbotron-header {
-  text-align: center;
   font-size: 100px;
   letter-spacing: 15px;
 }
@@ -77,13 +89,76 @@ body {
 }
 
 #searchBox {
-  top: 60%;
+  top: 45%;
   max-width: 50%;
   margin-left: 25%;
   margin-right: 25%;
-
 }
 
 .row-1 {
   width: 78%;
 }
+
+#logo {
+  width: 200px;
+  margin-top: 20px;
+}
+
+#signUpButton {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.manage-view-buttons {
+  margin-top: 50px;
+}
+#groceryButton {
+  background-color: #F2D349;
+}
+#savedRecipeButton{
+  background-color: #F2D349;
+}
+
+#page-div {
+  background-image: url('/public/assets/images/backgroundsearch.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+#saved-header {
+  color: white;
+  font-weight: 600;
+  margin-top: 100px;
+  font-size: 8vw;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.card {
+ padding: 20px;
+ border: transparent;
+ color: #D48166;
+}
+
+.card-header {
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+
+.card-text {
+  color: #5C6E58;
+  text-align: center;
+}
+
+.card-button {
+  background-color: #8AA899;
+  color: white;
+}
+
+.text-nav {
+  color: #5C6E58;
+}
+
