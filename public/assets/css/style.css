@@ -3,7 +3,6 @@
       display: none;
   }
 }
-
 @media print {
   body * {
     visibility:hidden;
