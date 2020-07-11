@@ -26,7 +26,7 @@
     <div class="container">
       <!-- navbar with account details-->
       <nav class="navbar navbar-expand-lg" id="nav">
-        <a class="navbar-brand text-warning" href="#">FOODGURU</a>
+        <a class="navbar-brand text-nav" href="#">FOODGURU</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,10 +40,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
-              <a class="nav-link text-warning" href="/saved">My Calendar</a>
+              <a class="nav-link text-nav" href="./saved.html">My Calendar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-warning" href="/logout">Logout</a>
+              <a class="nav-link text-nav" href="/logout">Logout</a>
             </li>
           </div>
         </div>
@@ -53,19 +53,19 @@
         <div class="row rounded search-image">
           <div class="col-md-12 search-image-inside">
             <h1 id="jumbotron-header">FOODGURU</h1>
-            <p>Get started by searching the recipe library</p>
+            <p>Plan weekly meals by searching the recipe library</p>
             
             <div class="input-group" id="searchBox">
               <input
                 type="text"
-                class="form-control"
+                class="form-control border-warning"
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
                 placeholder="Search by ingredient"
               />
               <div class="input-group-append ">
                 <button
-                  class="btn btn-outline-secondary bg-white"
+                  class="btn btn-outline-warning border-warning bg-white"
                   type="button"
                   id="searchButton"
                 >
@@ -76,28 +76,27 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-12 rounded" id="resultsDiv">
-            <div class="card" style="width: 18rem;" id="resultsCard">
-              <img
-                src="http://placekitten.com/200/200"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary" id="saveRecipe"
-                  >Save to Calendar</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row test-row"></div>
+<div class="container">
+
+  <div class="row">
+
+    <div class="card-deck">
+      <div class="card col-md-4 rounded resultsDiv">
+        <div class="card-header text-center font-weight-bold recipe-name">Chicken Parm</div>
+        <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img results-card-img" alt="chicken parm" />
+        <div class="card-body py-2">
+          <p class="card-text results-recipe-description">
+            This is a description of the recipe
+          </p>
+          <button type="button" class="btn btn-sm font-weight-bolder card-button saveRecipe"
+
+           >Save to Calendar </button>
+    </div>
+
+    
+  </div>
+</div>
+      
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
