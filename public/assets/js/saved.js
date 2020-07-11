@@ -41,6 +41,7 @@ const createList = (item, id, userId) => {
 const getList = (userData) => {
   $.get(`/api/shopping_lists/${userData.id}`).then((results) => {
     // $('.test-list-el').empty;
+    console.log('ingredients', results);
     results.forEach((result) => {
       // console.log(result.name);
       createList(result.name, result.id, userData.id);
@@ -50,7 +51,7 @@ const getList = (userData) => {
 const getRecipes = (userData) => {
   // get request to /api/recipes/:userId for recipe saved recipe info
   $.get(`/api/recipes/${userData.id}`).then((results) => {
-    // console.log(results);
+    console.log('recipes', results);
     // with the returned info, create dom elements to display the info
     // populate saved page with list of recipes
     // that are saved to the db for the current user
