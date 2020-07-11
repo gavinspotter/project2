@@ -26,7 +26,7 @@
       <nav class="navbar navbar-expand-lg" id="nav">
         <a class="navbar-brand text-nav" href="#">FOODGURU</a>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler "
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"
@@ -34,13 +34,13 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon "></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
 
-              <a class="nav-link text-nav" href="/search">Recipe Search</a>
+              <a class="nav-link text-nav" href="./search.html">Recipe Search</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-nav" href="/logout">Logout</a>
@@ -54,12 +54,14 @@
 
     <div class="container" id="page-div">      
       <!-- navbar with account details-->
-      <div class="row mt-2" >
-        <h1 id="saved-header">FOODGURU</h1>
+      <div class="row" >
+      
+        <div class="col-md-12">
+          <h1 id="saved-header">FOODGURU</h1>
+        </div>
 
         <div class="col-md-6 manage-view-buttons">
           <button
-
               class="btn text-white btn-lg btn-block font-weight-bolder mt-2 mb-4"
 
               type="button"
@@ -84,7 +86,7 @@
           </div>
         </div>
       </div>
-    </div>
+    
           <div class="modal fade" id="savedRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -118,6 +120,9 @@
                 </div>
                 <div class="modal-footer mr-3">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                
                 </div>
               </div>
             </div>
@@ -125,33 +130,32 @@
 
           
        
-          <div id="printThis">
-            <div class="modal fade" id="groceryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center">Grocery List</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class=body-message>
-                      <ul>
-                        <li>Milk</li>
-                        <li>Eggs</li>
-                      </ul>
+        <div id="printThis">
+          <div class="modal fade" id="groceryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title w-100 text-center">Grocery List</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class=body-message>
+                    <ul>
+                      <li>Milk</li>
+                      <li>Eggs</li>
+                    </ul>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" id="btnPrint">Print</button>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btnPrint">Print</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>  
-    
+        </div>
       <div class="container">
 
         <div class="row mb-4">
@@ -317,9 +321,10 @@
           </div>
         </div>
       </div>
-
     </div>
+
     <!-- Modals for Weekdays -->
+    <div class="modals-for-weekdays">
     <!-- Monday -->
     <div class="modal fade" id="mondayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -518,6 +523,8 @@
         </div>
       </div>
     </div>
+    </div>
+  </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
