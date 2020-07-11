@@ -19,13 +19,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Hello, world!</title>
+    <title>FOODGURU</title>
   </head>
   <body>
     <div class="container">
-      <!-- navbar with account details-->
       <nav class="navbar navbar-expand-lg" id="nav">
-        <a class="navbar-brand text-white" href="#">FOOD SHOP</a>
+        <a class="navbar-brand text-nav" href="#">FOODGURU</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,20 +39,29 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto w-100 justify-content-end">
             <li class="nav-item">
-              <a class="nav-link text-white" href="/search">Recipe Search</a>
+
+              <a class="nav-link text-nav" href="/search">Recipe Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/logout">Logout</a>
+              <a class="nav-link text-nav" href="/logout">Logout</a>
+
             </li>
           </div>
         </div>
       </nav>
+  
     </div>
-    <div class="container">
-      <div class="row mt-2">
-        <div class="col-md-6">
+
+    <div class="container" id="page-div">      
+      <!-- navbar with account details-->
+      <div class="row mt-2" >
+        <h1 id="saved-header">FOODGURU</h1>
+
+        <div class="col-md-6 manage-view-buttons">
           <button
-              class="btn btn-secondary btn-lg btn-block font-weight-bolder mt-2 mb-4"
+
+              class="btn text-white btn-lg btn-block font-weight-bolder mt-2 mb-4"
+
               type="button"
               id="savedRecipeButton"
               data-toggle='modal'
@@ -62,7 +70,19 @@
                 Manage Your Recipes
               </button>
         </div>
-              <div class="modal fade" id="savedRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="col-md-6 manage-view-buttons">
+          <button
+          class="btn  text-white btn-lg btn-block font-weight-bolder mt-2 mb-4"
+          type="button"
+          id="groceryButton"
+          data-toggle='modal'
+          data-target="#groceryModal"
+          >
+            View Your Groceries
+          </button>
+        </div>
+      </div>
+          <div class="modal fade" id="savedRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -97,6 +117,7 @@
                   </div>
                 </div>
               </div>
+
         <div class="col-md-6">
           <button
           class="btn btn-secondary btn-lg btn-block font-weight-bolder mt-2 mb-4"
@@ -109,6 +130,7 @@
           </button>
         </div>
         <div id="printThis">
+
           <div class="modal fade" id="groceryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -133,43 +155,60 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
       <div class="container">
+
         <div class="row mb-4">
+
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark" style="width: 16rem;">
+
+              <div class="card mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Monday</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="mondayButton"
+
+                  <button type="button" class="btn btn-sm font-weight-bolder card-button " id="mondayButton"
+
                   data-toggle='modal' data-target="#mondayModal">Select Recipe</button>
               </div>
             </div>
           </div>
+
+          
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Tuesday</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="tuesdayButton"
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="tuesdayButton"
+
                   data-toggle='modal' data-target="#tuesdayModal">Select Recipe</button>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Wednesday</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bold" id="wednesdayButton"
+
+                  <button type="button" class="btn card-button text-white btn-sm font-weight-bold" id="wednesdayButton"
+
                   data-toggle='modal' data-target="#wednesdayModal">Select Recipe</button>
               </div>
             </div>
@@ -177,24 +216,32 @@
           
           <div class="col-md-4">
           <div class="card-deck">
-            <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+            <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
               <div class="card-header text-center font-weight-bold">Thursday</div>
               <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
               <div class="card-body py-2">
                 <p class="card-text text-center">Chicken Parm</div>
-                <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="thursdayButton"
+
+                <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="thursdayButton"
+
                 data-toggle='modal' data-target="#thursdayModal">Select Recipe</button>
             </div>
           </div>
           </div>
           <div class="col-md-4">
           <div class="card-deck">
-            <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+            <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
               <div class="card-header text-center font-weight-bold">Friday</div>
               <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
               <div class="card-body py-2">
                 <p class="card-text text-center">Chicken Parm</div>
-                <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="fridayButton"
+
+                <button type="button" class="btn card-button btn-sm font-weight-bolder" id="fridayButton"
+
                 data-toggle='modal' data-target="#fridayModal">Select Recipe</button>
             </div>
           </div>
@@ -202,36 +249,48 @@
       
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Saturday</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="saturdayButton"
+
+                  <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="saturdayButton"
+
                   data-toggle='modal' data-target="#saturdayModal">Select Recipe</button>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Sunday</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="sundayButton"
+
+                  <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="sundayButton"
+
                   data-toggle='modal' data-target="#sundayModal">Select Recipe</button>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Weekly Snack</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="snackButton"
+
+                  <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="snackButton"
+
                   data-toggle='modal' data-target="#snackModal">Select Recipe</button>
               </div>
             </div>
@@ -239,12 +298,16 @@
         
           <div class="col-md-4">
             <div class="card-deck">
-              <div class="card text-white bg-dark mt-3" style="width: 16rem;">
+
+              <div class="card text-warning bg-white mt-3"style="width: 16rem;">
+
                 <div class="card-header text-center font-weight-bold">Dessert</div>
                 <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
                 <div class="card-body py-2">
                   <p class="card-text text-center">Chicken Parm</div>
-                  <button type="button" class="btn btn-secondary btn-sm font-weight-bolder" id="dessertButton"
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="dessertButton"
+
                   data-toggle='modal' data-target="#dessertModal">Select Recipe</button>
                 </div>
               </div>
@@ -261,7 +324,9 @@
           </div>
         </div>
       </div>
-    <!-- Optional JavaScript -->
+
+    </div>
+    <!-- Modals for Weekdays -->
     <!-- Monday -->
     <div class="modal fade" id="mondayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -478,6 +543,8 @@
     ></script>
 
     <script src="./assets/js/saved.js"></script>
+
     <script src="./assets/js/print.js"></script>
+
   </body>
 </html>

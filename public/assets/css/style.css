@@ -42,7 +42,6 @@ body {
   padding: 30px;
 }
 
-
 #resultsCard {
   margin: 5px;
   text-align: center;
@@ -82,11 +81,7 @@ body {
   color: white;
 }
 
-#searchButton {
-}
-
 #jumbotron-header {
-  text-align: center;
   font-size: 100px;
   letter-spacing: 15px;
 }
@@ -99,7 +94,6 @@ body {
   max-width: 50%;
   margin-left: 25%;
   margin-right: 25%;
-
 }
 
 .row-1 {
@@ -107,11 +101,76 @@ body {
 }
 
 #logo {
-width: 200px;
-margin-top: 20px;
-
+  width: 200px;
+  margin-top: 20px;
 }
 
 #signUpButton {
-  font-family:  'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.manage-view-buttons {
+  margin-top: 50px;
+}
+#groceryButton {
+  background-color: #F2D349;
+}
+#savedRecipeButton{
+  background-color: #F2D349;
+}
+#page-div {
+  margin-top: 5px;
+  padding: 10rem 5%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+}
+#page-div::after {
+  content: '';
+  position: absolute;
+  background-image: url('/public/assets/images/backgroundsearch.jpg');
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: .7;
+  background-position-y: 40%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#saved-header {
+  color: #F2D349;
+  font-size: 100px;
+  letter-spacing: 15px;
+  text-align: center;
+}
+
+.card {
+ padding: 20px;
+ border: transparent;
+ color: #D48166;
+}
+
+.card-header {
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+
+.card-text {
+  color: #5C6E58;
+}
+
+.card-button {
+  background-color: #8AA899;
+  color: white;
+}
+
+.text-nav {
+  color: #5C6E58;
 }
