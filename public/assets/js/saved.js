@@ -44,7 +44,7 @@ const getList = (userData) => {
     console.log('ingredients', results);
     results.forEach((result) => {
       // console.log(result.name);
-      createList(result.name, result.id, userData.id);
+      // createList(result.name, result.id, userData.id);
     });
   });
 };
@@ -56,7 +56,7 @@ const getRecipes = (userData) => {
     // populate saved page with list of recipes
     // that are saved to the db for the current user
     results.forEach((result) => {
-      createCards(result.name, result.pickedDay, result.recipeId);
+      // createCards(result.name, result.pickedDay, result.recipeId);
     });
   });
 };

@@ -9,29 +9,32 @@ $.post('/api/user_data').then((res) => {
 });
 
 // function to dynamically create cards
-const createCards = (title, imageSrc, id) => {
+const createCards = (title, imageSrc, description, id) => {
   const cardEl = $('<div>', {
-    style: 'width: 18rem;',
-    class: 'card',
+    class: 'card col-md-4 rounded',
   });
-  const cardBodyEl = $('<div>', {
-    class: 'card-body',
-  });
+  const cardHeaderEl = $('<div>', {
+    class: 'card-header text-center font-weight-bold',
+  }).text(title);
   const cardImgEl = $('<img>', {
-    class: 'card-img-top',
+    class: 'card-img result-images',
     src: imageSrc,
   });
-  const cardTitleEl = $('<h5>', {
-    class: 'card-title',
-  }).text(title);
+  const cardBodyEl = $('<div>', {
+    class: 'card-body py-2',
+  });
+  const cardParaEl = $('<p>', {
+    class: 'card-text recipe-description',
+  }).html(description);
+
   const saveBtnEl = $('<button>', {
-    class: 'btn btn-primary calendar-save',
+    class: 'btn btn-sm font-weight-bolder card-bottom save-recipe',
     'data-recipe-id': id,
     'data-recipe-title': title,
   }).text('Save to Calendar');
-  cardBodyEl.append(cardImgEl, cardTitleEl, saveBtnEl);
-  cardEl.append(cardBodyEl);
-  $('.col-md-9').append(cardEl);
+  cardBodyEl.append(cardParaEl, saveBtnEl);
+  cardEl.append(cardHeaderEl, cardImgEl, cardBodyEl);
+  $('.test-row').append(cardEl);
 };
 
 // when clicked, will send query to back end and search for results
@@ -40,14 +43,15 @@ $('#searchButton').on('click', () => {
   // getRecipes(searchQuery);
   $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
     console.log(results);
+    $('.test-row').empty();
     results.forEach((result) => {
-      createCards(result.title, result.image, result.id);
+      createCards(result.title, result.image, result.description, result.id);
     });
   });
 });
 
 // when clicked, will save the clicked recipe to the calendar and db
-$(document.body).on('click', '.calendar-save', (e) => {
+$(document.body).on('click', '.save-recipe', (e) => {
   // get recipe id and title from data attributes saved to the elements
   const id = e.target.getAttribute('data-recipe-id');
   const title = e.target.getAttribute('data-recipe-title');
