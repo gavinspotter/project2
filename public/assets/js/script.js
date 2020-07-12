@@ -9,7 +9,8 @@ $.post('/api/user_data').then((res) => {
 });
 
 // function to dynamically create cards
-const createCards = (title, imageSrc, id) => {
+const createCards = (title, imageSrc, id, steps) => {
+  console.log(steps);
   const cardEl = $('<div>', {
     style: 'width: 18rem;',
     class: 'card',
@@ -24,14 +25,21 @@ const createCards = (title, imageSrc, id) => {
   const cardTitleEl = $('<h5>', {
     class: 'card-title',
   }).text(title);
+
+  const stepsList = $('<ol>');
+  steps.forEach((el) => {
+    const liEl = $('<li>').text(el.step);
+    stepsList.append(liEl);
+  });
+
   const saveBtnEl = $('<button>', {
     class: 'btn btn-primary calendar-save',
     'data-recipe-id': id,
     'data-recipe-title': title,
   }).text('Save to Calendar');
-  cardBodyEl.append(cardImgEl, cardTitleEl, saveBtnEl);
+  cardBodyEl.append(cardTitleEl, cardImgEl, stepsList, saveBtnEl);
   cardEl.append(cardBodyEl);
-  $('.col-md-9').append(cardEl);
+  $('.foodContainer').append(cardEl);
 };
 
 // when clicked, will send query to back end and search for results
@@ -39,9 +47,8 @@ $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
   // getRecipes(searchQuery);
   $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
-    console.log(results);
     results.forEach((result) => {
-      createCards(result.title, result.image, result.id);
+      createCards(result.title, result.image, result.id, result.instructions[0].steps);
     });
   });
 });
