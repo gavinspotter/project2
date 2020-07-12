@@ -9,12 +9,8 @@ $.post('/api/user_data').then((res) => {
 });
 
 // function to dynamically create cards
-<<<<<<< HEAD
-const createCards = (title, imageSrc, description, id) => {
-=======
 const createCards = (title, imageSrc, id, steps) => {
   console.log(steps);
->>>>>>> 4ed15206354d33285d2beeccfedeb531a088219e
   const cardEl = $('<div>', {
     class: 'card col-md-6 rounded',
   });
@@ -25,14 +21,6 @@ const createCards = (title, imageSrc, id, steps) => {
     class: 'card-img result-images',
     src: imageSrc,
   });
-<<<<<<< HEAD
-  const cardBodyEl = $('<div>', {
-    class: 'card-body py-2',
-  });
-  const cardParaEl = $('<p>', {
-    class: 'card-text recipe-description',
-  }).html(description);
-=======
   const cardTitleEl = $('<h5>', {
     class: 'card-title',
   }).text(title);
@@ -42,22 +30,15 @@ const createCards = (title, imageSrc, id, steps) => {
     const liEl = $('<li>').text(el.step);
     stepsList.append(liEl);
   });
->>>>>>> 4ed15206354d33285d2beeccfedeb531a088219e
 
   const saveBtnEl = $('<button>', {
     class: 'btn btn-sm font-weight-bolder card-bottom save-recipe',
     'data-recipe-id': id,
     'data-recipe-title': title,
   }).text('Save to Calendar');
-<<<<<<< HEAD
-  cardBodyEl.append(cardParaEl, saveBtnEl);
-  cardEl.append(cardHeaderEl, cardImgEl, cardBodyEl);
-  $('.card-deck').append(cardEl);
-=======
   cardBodyEl.append(cardTitleEl, cardImgEl, stepsList, saveBtnEl);
   cardEl.append(cardBodyEl);
   $('.foodContainer').append(cardEl);
->>>>>>> 4ed15206354d33285d2beeccfedeb531a088219e
 };
 
 // when clicked, will send query to back end and search for results
@@ -65,15 +46,13 @@ $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
   // getRecipes(searchQuery);
   $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
-<<<<<<< HEAD
-    console.log(results);
-    $('.test-row').empty();
     results.forEach((result) => {
-      createCards(result.title, result.image, result.description, result.id);
-=======
-    results.forEach((result) => {
-      createCards(result.title, result.image, result.id, result.instructions[0].steps);
->>>>>>> 4ed15206354d33285d2beeccfedeb531a088219e
+      createCards(
+        result.title,
+        result.image,
+        result.id,
+        result.instructions[0].steps
+      );
     });
   });
 });
