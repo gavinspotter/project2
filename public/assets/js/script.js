@@ -11,7 +11,7 @@ $.post('/api/user_data').then((res) => {
 // function to dynamically create cards
 const createCards = (title, imageSrc, description, id) => {
   const cardEl = $('<div>', {
-    class: 'card col-md-4 rounded',
+    class: 'card col-md-6 rounded',
   });
   const cardHeaderEl = $('<div>', {
     class: 'card-header text-center font-weight-bold',
@@ -34,7 +34,7 @@ const createCards = (title, imageSrc, description, id) => {
   }).text('Save to Calendar');
   cardBodyEl.append(cardParaEl, saveBtnEl);
   cardEl.append(cardHeaderEl, cardImgEl, cardBodyEl);
-  $('.test-row').append(cardEl);
+  $('.card-deck').append(cardEl);
 };
 
 // when clicked, will send query to back end and search for results

@@ -37,11 +37,7 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
-<<<<<<< HEAD
       null
-=======
-      null,
->>>>>>> 386573f15f6355f824cb3cd51e102a7e025974bd
     );
   });
   return User;
