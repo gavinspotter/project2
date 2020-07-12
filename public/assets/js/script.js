@@ -26,11 +26,11 @@ const createCards = (title, imageSrc, id, steps) => {
     class: 'card-title',
   }).text(title);
 
-  const stepsList = $('<ol>')
-  steps.forEach(el => {
+  const stepsList = $('<ol>');
+  steps.forEach((el) => {
     const liEl = $('<li>').text(el.step);
     stepsList.append(liEl);
-  })
+  });
 
   const saveBtnEl = $('<button>', {
     class: 'btn btn-primary calendar-save',
@@ -47,7 +47,6 @@ $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
   // getRecipes(searchQuery);
   $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
-    console.log("hello", results);
     results.forEach((result) => {
       createCards(result.title, result.image, result.id, result.instructions[0].steps);
     });
