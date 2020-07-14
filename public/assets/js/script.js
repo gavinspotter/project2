@@ -11,7 +11,7 @@ $.post('/api/user_data').then((res) => {
 const createCards = (title, imageSrc, id, description) => {
   //   // console.log(steps);
   const rowEl = $('<div>', {
-    class: 'row',
+    class: 'row card-row',
   });
   const cardEl = $('<div>', {
     class: 'card col-md-3 rounded',
@@ -21,7 +21,7 @@ const createCards = (title, imageSrc, id, description) => {
     src: imageSrc,
   });
   const saveBtnEl = $('<button>', {
-    class: 'btn btn-sm font-weight-bolder card-bottom save-recipe',
+    class: 'btn card-save-button btn-sm font-weight-bolder card-bottom save-recipe',
     'data-recipe-id': id,
     'data-recipe-title': title,
     'data-image': imageSrc,

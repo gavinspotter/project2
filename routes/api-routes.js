@@ -202,6 +202,7 @@ module.exports = (app) => {
         console.log(err);
       });
   });
+  // route for deleting recipes the user has saved
   app.delete('/api/recipes/:userId/:recipeId', (req, res) => {
     console.log(req.params.userId, req.params.recipeId);
     db.Recipe.destroy({
@@ -218,6 +219,7 @@ module.exports = (app) => {
         console.log(err);
       });
   });
+  // routes for updating the user's meal plan by days
   app.put('/api/mealplan/monday/:recipeId/:userId', (req, res) => {
     db.Mealplan.update({
       monday: req.params.recipeId,

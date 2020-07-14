@@ -1,24 +1,31 @@
 @media screen {
   #printSection {
-      display: none;
+    display: none;
   }
 }
 @media print {
   body * {
-    visibility:hidden;
+    visibility: hidden;
   }
-  #printSection, #printSection * {
-    visibility:visible;
+  #printSection,
+  #printSection * {
+    visibility: visible;
   }
   #printSection {
-    position:absolute;
-    left:0;
-    top:0;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  
 }
 
 .h5-header {
@@ -37,9 +44,6 @@ body {
   border-radius: 25px;
 }
 
-#searchBox {
-  padding: 30px;
-}
 
 #resultsCard {
   margin: 5px;
@@ -57,6 +61,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* image from: https://ny.eater.com/2019/11/14/20963129/chicken-parm-nyc-dating-singles-turn-on-horny-aphrodisiac */
 .search-image:after {
   content: '';
   position: absolute;
@@ -80,10 +86,6 @@ body {
   color: white;
 }
 
-#jumbotron-header {
-  font-size: 100px;
-  letter-spacing: 15px;
-}
 .search-bar {
   text-align: center;
 }
@@ -112,14 +114,15 @@ body {
   margin-top: 50px;
 }
 #groceryButton {
-  background-color: #F2D349;
+  background-color: #f2d349;
 }
-#savedRecipeButton{
-  background-color: #F2D349;
+#savedRecipeButton {
+  background-color: #f2d349;
 }
 
+/* photo from: https://www.freepik.com/free-photos-vectors/background */
 #page-div {
-  background-image: url('/public/assets/images/backgroundsearch.jpg');
+  background-image: url('../images/backgroundsearch.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   text-align: center;
@@ -134,10 +137,18 @@ body {
   text-align: center;
 }
 
+.jumbotron-header {
+  color: white;
+  font-weight: 600;
+  font-size: 8vw;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
 .card {
- padding: 20px;
- border: transparent;
- color: #D48166;
+  padding: 20px;
+  border: transparent;
+  color: #d48166;
 }
 
 .card-header {
@@ -147,18 +158,29 @@ body {
   font-size: larger;
 }
 
-
 .card-text {
-  color: #5C6E58;
+  color: #5c6e58;
   text-align: center;
 }
 
 .card-button {
-  background-color: #8AA899;
+  background-color: #8aa899;
   color: white;
 }
 
+.card-save-button {
+  background-color: #8aa899;
+  color: white;
+  margin-top: 5px;
+}
 .text-nav {
-  color: #5C6E58;
+  color: #5c6e58;
+}
+
+.card-row {
+  margin-top: 15px;
+  border: 1px solid #8aa899;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
