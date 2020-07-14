@@ -1,6 +1,7 @@
 // call for user id when the page loads
 // create object that will contain current user data
 let user = {};
+let selectedDay;
 // function for creating cards
 // const createCards = (title, day, id) => {
 //   const cardEl = $('<div>', {
@@ -136,7 +137,22 @@ $(document.body).on('click', '.add-btn', (e) => {
 $('#savedRecipeButton').on('click', () => {
   getRecipes(user);
 });
-
+// listener to handle updating
+$('.select-day').on('click', (e) => {
+  selectedDay = e.target.getAttribute('data-select');
+  console.log(selectedDay);
+});
+$(document.body).on('click', '.select-this-button', (e) => {
+  const recipeId = e.target.getAttribute('data-recipe-id');
+  const userId = e.target.getAttribute('data-user-id');
+  console.log(selectedDay, recipeId, userId);
+  $.ajax({
+    url: `/api/mealplan/${selectedDay}/${recipeId}/${userId}`,
+    type: 'PUT',
+  }).then((results) => {
+    console.log(results);
+  });
+});
 // set up delete route when remove button is clicked
 // deletes single item from list
 $(document.body).on('click', '.remove-item-btn', (e) => {
