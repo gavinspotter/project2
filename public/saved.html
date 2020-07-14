@@ -87,44 +87,41 @@
         </div>
       </div>
     
-          <div class="modal fade" id="savedRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title w-100 text-center">Saved Recipes</h5>
-                    
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  </div>
-               
-                <div class="modal-body">
-                  <ul class="list-group list-group-flush saved-recipe-list">
-                    <li class="list-group-item">
-                      <span class="name"></span>Chicken Cesaer Salad w/ Corn</span>
-                      <div class="float-right">
-                        <button type="button" class="btn btn-danger btn-sm" aria-label="Close">
-                          Delete
-                        </button>
-                        </div>
-                      </li>
-                      <li class="list-group-item">
-                      <span class="name">Chicken Parm</span>
-                      <div class="float-right">
-                      <button type="button" class="btn btn-danger btn-sm" aria-label="Close">
-                        Delete
-                      </button>
-                      </div>
-                      </li>
-                  </ul>
-                </div>
-                <div class="modal-footer mr-3">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                
-                </div>
+      <div class="modal fade" id="savedRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title w-100 text-center">Manage Recipes</h5>
+              
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
               </div>
+         
+          <div class="modal-body">
+              <table class="table table-striped saved-recipe-list">
+                <tbody>
+                  <tr scope="row">
+                    <td>Chicken Parmesan Chicken Parmesan Chicken Parmesan Chicken Parmesan</td>
+                    <td><button type='button' class='delete-recipe'>Delete</button></td>
+        
+                  </tr>
+                  <tr scope="row">
+                    <td>Chicken Parmesan</td>
+                    <td><button type="button" class='delete-recipe'>Delete</a></td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
             </div>
           </div>
 
@@ -337,9 +334,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="mondayFoodList"></div>
+              <div id="mondayFoodListWrapper">
+                <ul id="mondayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="mondayRecipeList"></div>
+              <div id="mondayRecipeListWrapper">
+                <ol id="mondayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -381,9 +382,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="tuesdayFoodList"></div>
+              <div id="tuesdayFoodListWrapper">
+                <ul id="tuesdayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="tuesdayRecipeList"></div>
+              <div id="tuesdayRecipeListWrapper">
+                <ol id="tuesdayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -425,9 +430,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="wednesdayFoodList"></div>
+              <div id="wednesdayFoodListWrapper">
+                <ul id="wednesdayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="wednesdayRecipeList"></div>
+              <div id="wednesdayRecipeListWrapper">
+                <ol id="wednesdayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -469,9 +478,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="thursdayFoodList"></div>
+              <div id="thursdayFoodListWrapper">
+                <ul id="thursdayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="thursdayRecipeList"></div>
+              <div id="thursdayRecipeListWrapper">
+                <ol id="thursdayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -513,9 +526,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="fridayFoodList"></div>
+              <div id="fridayFoodListWrapper">
+                <ul id="fridayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="fridayRecipeList"></div>
+              <div id="fridayRecipeListWrapper">
+                <ol id="fridayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -557,9 +574,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="saturdayFoodList"></div>
+              <div id="saturdayFoodListWrapper">
+                <ul id="saturdayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="saturdayRecipeList"></div>
+              <div id="saturdayRecipeListWrapper">
+                <ol id="saturdayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -601,9 +622,13 @@
           </div>
           <div class="modal-body">
               <p class="font-weight-bold">Ingredients</p>
-              <div id="sundayFoodList"></div>
+              <div id="sundayFoodListWrapper">
+                <ul id="sundayFoodList"></ul>
+              </div>
               <p class="font-weight-bold">Recipe</p>
-              <div id="sundayRecipeList"></div>
+              <div id="sundayRecipeListWrapper">
+                <ol id="sundayRecipeList"></ol>
+              </div>
           </div>
           <div class="modal-footer mr-3">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

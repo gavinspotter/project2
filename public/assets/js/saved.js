@@ -26,22 +26,21 @@ let selectedDay;
 // };
 const createRecipeList = (recipe, recipeId, userId) => {
   // create new li for item
-  const liEl = $('<li>', {
-    class: 'list-group-item',
-  }).text(recipe);
-  const floatDivEl = $('<div>', {
-    class: 'float-right',
+  const trEl = $('<tr>', {
+    scope: 'row',
   });
+  const tdTitleEl = $('<td>').text(recipe);
+  const tdButtonEl = $('<td>');
   const buttonEl = $('<button>', {
-    class: 'btn btn-danger btn-sm remove-btn',
+    class: 'delete-recipe',
     'data-recipe-id': recipeId,
     'data-userId': userId,
   }).text('Delete');
+  tdButtonEl.append(buttonEl);
+  trEl.append(tdTitleEl, tdButtonEl);
   // append the button to the li
-  floatDivEl.append(buttonEl);
-  liEl.append(floatDivEl);
   // append the li to the ul element on the page
-  $('.saved-recipe-list').append(liEl);
+  $('.saved-recipe-list').append(trEl);
 };
 const createSelectRecipeList = (recipe, recipeId, userId) => {
   const buttonEl = $('<button>', {
@@ -51,20 +50,6 @@ const createSelectRecipeList = (recipe, recipeId, userId) => {
   }).text(recipe);
   $('.weekday-recipes').append(buttonEl);
 };
-// const getList = (userData) => {
-//   $.get(`/api/shopping_lists/${userData.id}`)
-//     .then((results) => {
-//       // $('.test-list-el').empty;
-//       console.log('ingredients', results);
-//       results.forEach((result) => {
-//         console.log('lists', result);
-//         // createList(result.name, result.id, userData.id);
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 const getRecipes = (userData) => {
   $('.saved-recipe-list').empty();
   $('.weekday-recipes').empty();
@@ -98,6 +83,37 @@ const getSingleRecipeInfo = (recipeId) => {
       console.log(err);
     });
 };
+const getMealCardInfo = (recipeId, day) => {
+  $.get(`/api/recipes/searchById/${recipeId}`)
+    .then((results) => {
+      // returns title, ingredients, and instructions
+      console.log(day, results);
+      // clear out the lists prior to appending new info
+      $(`#${day}FoodList`).empty();
+      $(`#${day}RecipeList`).empty();
+      // sets that day's title to the saved meal for that day
+      $(`#${day}Title`).text(results.title);
+      // sets the image src to the saved recipes result for that day
+      $(`#${day}Image`).attr('src', results.image);
+      // loops over the array of results and creates lists for ingredients
+      results.ingredients.forEach((ingredient) => {
+        const liEl = $('<li>', {
+          class: 'list item',
+        }).text(ingredient.name);
+        $(`#${day}FoodList`).append(liEl);
+      });
+      // loops over the array of results and creates lists for the instructions
+      results.instructions.forEach((step) => {
+        const liEl = $('<li>', {
+          class: 'list-item',
+        }).text(step.step);
+        $(`#${day}RecipeList`).append(liEl);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 // this handles populating the shopping list with recipe ingredients
 // gets the logged in user's data
 const pageLoad = async () => {
@@ -106,9 +122,24 @@ const pageLoad = async () => {
     user = { id: results.id, email: results.email };
     // console.log(user);
   });
+
   getRecipes(user);
+  getMealPlan(user);
   // api get request to /api/shopping-list/:userId
   // getList(user);
+};
+// function to get the user's saved mealplan data
+const getMealPlan = (user) => {
+  $.get(`/api/mealplan/${user.id}`).then((results) => {
+    console.log(results);
+    getMealCardInfo(results[0].monday, 'monday');
+    getMealCardInfo(results[1].tuesday, 'tuesday');
+    getMealCardInfo(results[2].wednesday, 'wednesday');
+    getMealCardInfo(results[3].thursday, 'thursday');
+    getMealCardInfo(results[4].friday, 'friday');
+    getMealCardInfo(results[5].saturday, 'saturday');
+    getMealCardInfo(results[6].sunday, 'sunday');
+  });
 };
 
 // each recipe will have an option on it to add to the week's meal plan
@@ -151,6 +182,7 @@ $(document.body).on('click', '.select-this-button', (e) => {
     type: 'PUT',
   }).then((results) => {
     console.log(results);
+    pageLoad();
   });
 });
 // set up delete route when remove button is clicked
@@ -166,7 +198,7 @@ $(document.body).on('click', '.remove-item-btn', (e) => {
   });
 });
 
-$(document.body).on('click', '.remove-btn', (e) => {
+$(document.body).on('click', '.delete-recipe', (e) => {
   const id = e.target.getAttribute('data-recipe-id');
   const userId = e.target.getAttribute('data-userid');
   $.ajax({

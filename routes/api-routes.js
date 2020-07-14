@@ -52,6 +52,7 @@ module.exports = (app) => {
         res.status(200).json({ message: 'Recipe added' });
       })
       .catch((err) => {
+        console.log(err);
         res.status(404).json(err);
       });
   });
@@ -122,12 +123,15 @@ module.exports = (app) => {
         res.json({
           id: query,
           title: results.data.title,
-          instructions: results.data.analyzedInstructions,
+          instructions: results.data.analyzedInstructions[0].steps,
           ingredients: results.data.extendedIngredients,
+          image: results.data.image,
+          description: results.data.summary,
         });
       })
       .catch((err) => {
         res.status(404).json(err);
+        console.log(err);
       });
   });
   // Route for getting the user's current shopping list
@@ -172,6 +176,25 @@ module.exports = (app) => {
       .catch((err) => {
         res.json(err);
       });
+  });
+  // route for getting user's mealplan info
+  app.get('/api/mealplan/:userId', (req, res) => {
+    db.Mealplan.findOne({
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      // format the response into an array of objects
+      res.json([
+        { monday: results.monday },
+        { tuesday: results.tuesday },
+        { wednesday: results.wednesday },
+        { thursday: results.thursday },
+        { friday: results.friday },
+        { saturday: results.saturday },
+        { sunday: results.sunday },
+      ]);
+    });
   });
   // route for deleting entire shopping list for the user
   app.delete('/api/shopping_lists/:userId', (req, res) => {
