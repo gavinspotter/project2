@@ -25,7 +25,6 @@ body {
 a {
   text-decoration: none;
   color: black;
-  
 }
 
 .h5-header {
@@ -43,7 +42,6 @@ a {
 .rounded {
   border-radius: 25px;
 }
-
 
 #resultsCard {
   margin: 5px;
@@ -184,3 +182,17 @@ a {
   padding-bottom: 10px;
 }
 
+.delete-recipe {
+  background-color: red;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border-width: 0px;
+  font-weight: 300;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  color: white;
+  float: right;
+}
+.delete-recipe:hover {
+  background-color: #b30000;
+}
