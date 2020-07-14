@@ -7,7 +7,6 @@ $.post('/api/user_data').then((res) => {
   // sets user object to be used during search requests
   user = { id: res.id, email: res.email };
 });
-
 // function to dynamically create cards
 const createCards = (title, imageSrc, id, description) => {
   //   // console.log(steps);
@@ -40,7 +39,6 @@ const createCards = (title, imageSrc, id, description) => {
   rowEl.append(cardEl, textWrapperEl);
   $('.card-deck').append(rowEl);
 };
-
 // when clicked, will send query to back end and search for results
 $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
@@ -53,7 +51,6 @@ $('#searchButton').on('click', () => {
     });
   });
 });
-
 // when clicked, will save the clicked recipe to the calendar and db
 $(document.body).on('click', '.save-recipe', (e) => {
   // get recipe id and title from data attributes saved to the elements
@@ -72,6 +69,5 @@ $(document.body).on('click', '.save-recipe', (e) => {
       console.log(err);
     });
 });
-
 // make a for loop for container length for the
 // for loop would be for the recipes. get the length of rest
