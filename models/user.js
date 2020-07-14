@@ -27,6 +27,11 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: 'cascade',
     });
   };
+  User.associate = (models) => {
+    User.hasMany(models.ShoppingList, {
+      onDelete: 'cascade',
+    });
+  };
   // Method will check if password entered by user
   //   can be compared to hashed password in database.
   User.prototype.validPassword = function (password) {

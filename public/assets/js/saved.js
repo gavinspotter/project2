@@ -2,48 +2,48 @@
 // create object that will contain current user data
 let user = {};
 // function for creating cards
-const createCards = (title, day, id) => {
-  const cardEl = $('<div>', {
-    style: 'width: 18rem;',
-    class: 'card',
-  });
-  const cardBodyEl = $('<div>', {
-    class: 'card-body',
-  });
-  const cardTitleEl = $('<h5>', {
-    class: 'card-title',
-  }).text(title);
-  const saveBtnEl = $('<button>', {
-    class: 'btn btn-primary add-btn',
-    'data-recipe-id': id,
-    'data-recipe-title': title,
-    'data-saved-day': day,
-  }).text('Add to Meal Plan');
-  cardBodyEl.append(cardTitleEl, saveBtnEl);
-  cardEl.append(cardBodyEl);
-  $('.test-recipes').append(cardEl);
-};
-const createList = (item, id, userId) => {
-  // create new li for item
-  const liEl = $('<li>', {
-    class: 'list-group-item',
-  }).text(item);
-  const buttonEl = $('<button>', {
-    class: 'btn btn-primary remove-item-btn',
-    'data-id': id,
-    'data-userId': userId,
-  }).text('Remove');
-  // append the button to the li
-  liEl.append(buttonEl);
-  // append the li to the ul element on the page
-  $('.test-list-ul').append(liEl);
-};
+// const createCards = (title, day, id) => {
+//   const cardEl = $('<div>', {
+//     style: 'width: 18rem;',
+//     class: 'card',
+//   });
+//   const cardBodyEl = $('<div>', {
+//     class: 'card-body',
+//   });
+//   const cardTitleEl = $('<h5>', {
+//     class: 'card-title',
+//   }).text(title);
+//   const saveBtnEl = $('<button>', {
+//     class: 'btn btn-primary add-btn',
+//     'data-recipe-id': id,
+//     'data-recipe-title': title,
+//     'data-saved-day': day,
+//   }).text('Add to Meal Plan');
+//   cardBodyEl.append(cardTitleEl, saveBtnEl);
+//   cardEl.append(cardBodyEl);
+//   $('.test-recipes').append(cardEl);
+// };
+// const createList = (item, id, userId) => {
+//   // create new li for item
+//   const liEl = $('<li>', {
+//     class: 'list-group-item',
+//   }).text(item);
+//   const buttonEl = $('<button>', {
+//     class: 'btn btn-primary remove-item-btn',
+//     'data-id': id,
+//     'data-userId': userId,
+//   }).text('Remove');
+//   // append the button to the li
+//   liEl.append(buttonEl);
+//   // append the li to the ul element on the page
+//   $('.test-list-ul').append(liEl);
+// };
 const getList = (userData) => {
   $.get(`/api/shopping_lists/${userData.id}`).then((results) => {
     // $('.test-list-el').empty;
     console.log('ingredients', results);
     results.forEach((result) => {
-      // console.log(result.name);
+      console.log(result.name);
       // createList(result.name, result.id, userData.id);
     });
   });
@@ -56,6 +56,7 @@ const getRecipes = (userData) => {
     // populate saved page with list of recipes
     // that are saved to the db for the current user
     results.forEach((result) => {
+      console.log(result);
       // createCards(result.name, result.pickedDay, result.recipeId);
     });
   });
@@ -68,8 +69,6 @@ const pageLoad = async () => {
     user = { id: results.id, email: results.email };
     // console.log(user);
   });
-  $('.test-recipes').empty();
-  $('.test-list-ul').empty();
   getRecipes(user);
   // api get request to /api/shopping-list/:userId
   getList(user);

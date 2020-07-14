@@ -9,36 +9,36 @@ $.post('/api/user_data').then((res) => {
 });
 
 // function to dynamically create cards
-const createCards = (title, imageSrc, id, steps) => {
-  console.log(steps);
-  const cardEl = $('<div>', {
-    class: 'card col-md-6 rounded',
+const createCards = (title, imageSrc, id, description) => {
+  //   // console.log(steps);
+  const rowEl = $('<div>', {
+    class: 'row',
   });
-  const cardHeaderEl = $('<div>', {
-    class: 'card-header text-center font-weight-bold',
-  }).text(title);
+  const cardEl = $('<div>', {
+    class: 'card col-md-3 rounded',
+  });
   const cardImgEl = $('<img>', {
     class: 'card-img result-images',
     src: imageSrc,
   });
-  const cardTitleEl = $('<h5>', {
-    class: 'card-title',
-  }).text(title);
-
-  const stepsList = $('<ol>');
-  steps.forEach((el) => {
-    const liEl = $('<li>').text(el.step);
-    stepsList.append(liEl);
-  });
-
   const saveBtnEl = $('<button>', {
     class: 'btn btn-sm font-weight-bolder card-bottom save-recipe',
     'data-recipe-id': id,
     'data-recipe-title': title,
   }).text('Save to Calendar');
-  cardBodyEl.append(cardTitleEl, cardImgEl, stepsList, saveBtnEl);
-  cardEl.append(cardBodyEl);
-  $('.foodContainer').append(cardEl);
+  cardEl.append(cardImgEl, saveBtnEl);
+  const textWrapperEl = $('<div>', {
+    class: 'col-md-9 text-wrapper',
+  });
+  const titleEl = $('<h3>', {
+    class: 'recipe-title',
+  }).text(title);
+  const descriptionEl = $('<p>', {
+    class: 'description-text',
+  }).html(description);
+  textWrapperEl.append(titleEl, descriptionEl);
+  rowEl.append(cardEl, textWrapperEl);
+  $('.card-deck').append(rowEl);
 };
 
 // when clicked, will send query to back end and search for results
@@ -46,13 +46,10 @@ $('#searchButton').on('click', () => {
   const searchQuery = $('.form-control').val();
   // getRecipes(searchQuery);
   $.get(`/api/recipes/search/${searchQuery}`).then((results) => {
+    console.log(results);
+    $('.card-deck').empty();
     results.forEach((result) => {
-      createCards(
-        result.title,
-        result.image,
-        result.id,
-        result.instructions[0].steps
-      );
+      createCards(result.title, result.image, result.id, result.description);
     });
   });
 });

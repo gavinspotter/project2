@@ -29,5 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
   };
+  Recipe.associate = (models) => {
+    Recipe.hasMany(models.ShoppingList, {
+      onDelete: 'cascade',
+    });
+  };
   return Recipe;
 };
