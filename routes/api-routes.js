@@ -134,6 +134,7 @@ module.exports = (app) => {
             title: recipe.title,
             instructions: recipe.analyzedInstructions,
             image: recipe.image,
+            description: recipe.summary,
           });
         });
         // send the array to the front end

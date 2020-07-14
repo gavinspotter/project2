@@ -59,6 +59,7 @@ const getRecipes = (userData) => {
     });
   });
 };
+
 // this handles populating the shopping list with recipe ingredients
 // get's the logged in user's data
 const pageLoad = async () => {
@@ -117,5 +118,15 @@ $('.delete-list').on('click', () => {
     pageLoad();
   });
 });
+
+// Mike wrote this
+// when clicked will update saved recipe list
+
+// $("#savedRecipeButton").on("click", () => {
+//   $(document).on('show.bs.modal', '#savedRecipeModal', () => {
+
+//   })
+//     const showRecipe = $("<li class='list-group-item'>").text();
+// })
 
 pageLoad();
