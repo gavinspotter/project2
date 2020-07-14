@@ -23,47 +23,72 @@ let user = {};
 //   cardEl.append(cardBodyEl);
 //   $('.test-recipes').append(cardEl);
 // };
-// const createList = (item, id, userId) => {
-//   // create new li for item
-//   const liEl = $('<li>', {
-//     class: 'list-group-item',
-//   }).text(item);
-//   const buttonEl = $('<button>', {
-//     class: 'btn btn-primary remove-item-btn',
-//     'data-id': id,
-//     'data-userId': userId,
-//   }).text('Remove');
-//   // append the button to the li
-//   liEl.append(buttonEl);
-//   // append the li to the ul element on the page
-//   $('.test-list-ul').append(liEl);
+const createRecipeList = (recipe, id, userId) => {
+  // create new li for item
+  const liEl = $('<li>', {
+    class: 'list-group-item',
+  }).text(recipe);
+  const floatDivEl = $('<div>', {
+    class: 'float-right',
+  });
+  const buttonEl = $('<button>', {
+    class: 'btn btn-danger btn-sm remove-btn',
+    'data-recipe-id': id,
+    'data-userId': userId,
+  }).text('Delete');
+  // append the button to the li
+  floatDivEl.append(buttonEl);
+  liEl.append(floatDivEl);
+  // append the li to the ul element on the page
+  $('.saved-recipe-list').append(liEl);
+};
+// const getList = (userData) => {
+//   $.get(`/api/shopping_lists/${userData.id}`)
+//     .then((results) => {
+//       // $('.test-list-el').empty;
+//       console.log('ingredients', results);
+//       results.forEach((result) => {
+//         console.log('lists', result);
+//         // createList(result.name, result.id, userData.id);
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
 // };
-const getList = (userData) => {
-  $.get(`/api/shopping_lists/${userData.id}`).then((results) => {
-    // $('.test-list-el').empty;
-    console.log('ingredients', results);
-    results.forEach((result) => {
-      console.log(result.name);
-      // createList(result.name, result.id, userData.id);
-    });
-  });
-};
 const getRecipes = (userData) => {
+  $('.saved-recipe-list').empty();
   // get request to /api/recipes/:userId for recipe saved recipe info
-  $.get(`/api/recipes/${userData.id}`).then((results) => {
-    console.log('recipes', results);
-    // with the returned info, create dom elements to display the info
-    // populate saved page with list of recipes
-    // that are saved to the db for the current user
-    results.forEach((result) => {
-      console.log(result);
-      // createCards(result.name, result.pickedDay, result.recipeId);
+  $.get(`/api/recipes/${userData.id}`)
+    .then((results) => {
+      console.log('recipes', results);
+      // with the returned info, create dom elements to display the info
+      // populate saved page with list of recipes
+      // that are saved to the db for the current user
+      results.forEach((result) => {
+        createRecipeList(result.name, result.id, result.UserId);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
 };
-
+// this handles getting data about specific recipes
+// steps, ingredients, etc
+// will display when clicked on
+// uses data attribute on view buttons with updated recipe id
+const getSingleRecipeInfo = (recipeId) => {
+  $.get(`/api/recipes/searchById/${recipeId}`)
+    .then((results) => {
+      // returns title, ingredients, and instructions
+      console.log(results);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 // this handles populating the shopping list with recipe ingredients
-// get's the logged in user's data
+// gets the logged in user's data
 const pageLoad = async () => {
   await $.post('/api/user_data').then((results) => {
     // sets user object to be used during search requests
@@ -72,13 +97,17 @@ const pageLoad = async () => {
   });
   getRecipes(user);
   // api get request to /api/shopping-list/:userId
-  getList(user);
+  // getList(user);
 };
 
 // each recipe will have an option on it to add to the week's meal plan
 // if it is added to the meal plan,
 // then it is added to the user's shopping list
-
+$('.view-recipe').on('click', (e) => {
+  const recipeId = e.target.getAttribute('data-recipe-id');
+  console.log(recipeId);
+  getSingleRecipeInfo(recipeId);
+});
 // click event for add to meal plans to update the day's
 $(document.body).on('click', '.add-btn', (e) => {
   const recipeId = e.target.getAttribute('data-recipe-id');
@@ -93,6 +122,10 @@ $(document.body).on('click', '.add-btn', (e) => {
   // this request handles saving the recipe ingredients to the shopping list
   // api put request to update recipe day
 });
+// click event that opens modal with saved recipes
+$('#savedRecipeButton').on('click', () => {
+  getRecipes(user);
+});
 
 // set up delete route when remove button is clicked
 // deletes single item from list
@@ -105,6 +138,22 @@ $(document.body).on('click', '.remove-item-btn', (e) => {
     console.log('success');
     pageLoad();
   });
+});
+
+$(document.body).on('click', '.remove-btn', (e) => {
+  const id = e.target.getAttribute('data-recipe-id');
+  const userId = e.target.getAttribute('data-userid');
+  $.ajax({
+    url: `/api/recipes/${userId}/${id}`,
+    type: 'DELETE',
+  })
+    .then(() => {
+      console.log('deleted');
+      getRecipes(user);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 // button to clear the shopping list, removes list items from db

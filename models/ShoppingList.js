@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   // create a relation to the user who created the post
-  ShoppingList.associate = (models) => {
-    ShoppingList.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false,
-      },
-    });
-  };
+  // ShoppingList.associate = (models) => {
+  //   ShoppingList.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false,
+  //     },
+  //   });
+  // };
   ShoppingList.associate = (models) => {
     ShoppingList.belongsTo(models.Recipe, {
       foreignKey: {

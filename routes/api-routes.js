@@ -45,6 +45,7 @@ module.exports = (app) => {
     db.Recipe.create({
       name: req.body.title,
       recipeId: req.body.recipeId,
+      image: req.body.image,
       UserId: req.body.userId,
     })
       .then(() => {
@@ -68,7 +69,7 @@ module.exports = (app) => {
         console.log(results.data);
         results.data.ingredients.forEach((result) => {
           db.ShoppingList.create({
-            name: result.name,
+            ingredient: result.name,
             UserId: req.params.userId,
           })
             .then(() => {
@@ -99,6 +100,26 @@ module.exports = (app) => {
       })
       .catch((err) => {
         console.log(err);
+      });
+  });
+  // route for getting data about saved recipes
+  app.get('/api/recipes/searchById/:id', (req, res) => {
+    const query = req.params.id;
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/${query}/information?apiKey=${process.env.apiKey}&includeNutrition=false`
+      )
+      .then((results) => {
+        console.log(results);
+        res.json({
+          id: query,
+          title: results.data.title,
+          instructions: results.data.analyzedInstructions,
+          ingredients: results.data.extendedIngredients,
+        });
+      })
+      .catch((err) => {
+        res.status(404).json(err);
       });
   });
   // Route for getting the user's current shopping list
@@ -168,6 +189,22 @@ module.exports = (app) => {
     })
       .then(() => {
         res.status(200).json({ message: 'it worked' });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  app.delete('/api/recipes/:userId/:recipeId', (req, res) => {
+    console.log(req.params.userId, req.params.recipeId);
+    db.Recipe.destroy({
+      where: {
+        UserId: req.params.userId,
+        Id: req.params.recipeId,
+      },
+    })
+      .then((results) => {
+        console.log(results);
+        res.json({ msg: 'deleted' });
       })
       .catch((err) => {
         console.log(err);
