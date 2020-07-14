@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     recipeId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
       validate: {
         len: [1],
       },

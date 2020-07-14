@@ -2,28 +2,7 @@
 // create object that will contain current user data
 let user = {};
 let selectedDay;
-// function for creating cards
-// const createCards = (title, day, id) => {
-//   const cardEl = $('<div>', {
-//     style: 'width: 18rem;',
-//     class: 'card',
-//   });
-//   const cardBodyEl = $('<div>', {
-//     class: 'card-body',
-//   });
-//   const cardTitleEl = $('<h5>', {
-//     class: 'card-title',
-//   }).text(title);
-//   const saveBtnEl = $('<button>', {
-//     class: 'btn btn-primary add-btn',
-//     'data-recipe-id': id,
-//     'data-recipe-title': title,
-//     'data-saved-day': day,
-//   }).text('Add to Meal Plan');
-//   cardBodyEl.append(cardTitleEl, saveBtnEl);
-//   cardEl.append(cardBodyEl);
-//   $('.test-recipes').append(cardEl);
-// };
+
 const createRecipeList = (recipe, recipeId, userId) => {
   // create new li for item
   const trEl = $('<tr>', {
@@ -50,6 +29,7 @@ const createSelectRecipeList = (recipe, recipeId, userId) => {
   }).text(recipe);
   $('.weekday-recipes').append(buttonEl);
 };
+// get's recipe info and returns it through recipe lists
 const getRecipes = (userData) => {
   $('.saved-recipe-list').empty();
   $('.weekday-recipes').empty();
@@ -102,6 +82,12 @@ const getMealCardInfo = (recipeId, day) => {
         }).text(ingredient.name);
         $(`#${day}FoodList`).append(liEl);
       });
+      results.ingredients.forEach((ingredient) => {
+        const liEl = $('<li>', {
+          class: 'list-item',
+        }).text(ingredient.name);
+        $('#print-shopping-list').append(liEl);
+      });
       // loops over the array of results and creates lists for the instructions
       results.instructions.forEach((step) => {
         const liEl = $('<li>', {
@@ -132,6 +118,7 @@ const pageLoad = async () => {
 const getMealPlan = (user) => {
   $.get(`/api/mealplan/${user.id}`).then((results) => {
     console.log(results);
+    $('#print-shopping-list').empty();
     getMealCardInfo(results[0].monday, 'monday');
     getMealCardInfo(results[1].tuesday, 'tuesday');
     getMealCardInfo(results[2].wednesday, 'wednesday');
