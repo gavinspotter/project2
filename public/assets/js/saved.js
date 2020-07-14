@@ -23,7 +23,7 @@ let user = {};
 //   cardEl.append(cardBodyEl);
 //   $('.test-recipes').append(cardEl);
 // };
-const createRecipeList = (recipe, id, userId) => {
+const createRecipeList = (recipe, recipeId, userId) => {
   // create new li for item
   const liEl = $('<li>', {
     class: 'list-group-item',
@@ -33,7 +33,7 @@ const createRecipeList = (recipe, id, userId) => {
   });
   const buttonEl = $('<button>', {
     class: 'btn btn-danger btn-sm remove-btn',
-    'data-recipe-id': id,
+    'data-recipe-id': recipeId,
     'data-userId': userId,
   }).text('Delete');
   // append the button to the li
@@ -41,6 +41,14 @@ const createRecipeList = (recipe, id, userId) => {
   liEl.append(floatDivEl);
   // append the li to the ul element on the page
   $('.saved-recipe-list').append(liEl);
+};
+const createSelectRecipeList = (recipe, recipeId, userId) => {
+  const buttonEl = $('<button>', {
+    class: 'list-group-item list-group-item-action select-this-button',
+    'data-recipe-id': recipeId,
+    'data-user-id': userId,
+  }).text(recipe);
+  $('.weekday-recipes').append(buttonEl);
 };
 // const getList = (userData) => {
 //   $.get(`/api/shopping_lists/${userData.id}`)
@@ -58,6 +66,7 @@ const createRecipeList = (recipe, id, userId) => {
 // };
 const getRecipes = (userData) => {
   $('.saved-recipe-list').empty();
+  $('.weekday-recipes').empty();
   // get request to /api/recipes/:userId for recipe saved recipe info
   $.get(`/api/recipes/${userData.id}`)
     .then((results) => {
@@ -66,7 +75,8 @@ const getRecipes = (userData) => {
       // populate saved page with list of recipes
       // that are saved to the db for the current user
       results.forEach((result) => {
-        createRecipeList(result.name, result.id, result.UserId);
+        createRecipeList(result.name, result.recipeId, result.UserId);
+        createSelectRecipeList(result.name, result.recipeId, result.UserId);
       });
     })
     .catch((err) => {

@@ -85,6 +85,14 @@ module.exports = (app) => {
         console.log('api error', err);
       });
   });
+  // route for creating new mealplan for the user upon signup
+  app.post('/api/mealplans/:userId', (req, res) => {
+    db.Mealplan.create({
+      UserId: req.params.userId,
+    }).then(() => {
+      res.status(200).json({ message: 'user and mealplan created' });
+    });
+  });
   // Route for getting user's saved recipes
   // user id will be determined by who is logged in
   app.get('/api/recipes/:userId', (req, res) => {
@@ -199,7 +207,7 @@ module.exports = (app) => {
     db.Recipe.destroy({
       where: {
         UserId: req.params.userId,
-        Id: req.params.recipeId,
+        recipeId: req.params.recipeId,
       },
     })
       .then((results) => {
@@ -209,5 +217,75 @@ module.exports = (app) => {
       .catch((err) => {
         console.log(err);
       });
+  });
+  app.put('/api/mealplan/monday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      monday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/tuesday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      tuesday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/wednesday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      wednesday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/thursday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      thursday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/friday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      friday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/saturday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      saturday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+  app.put('/api/mealplan/sunday/:recipeId/:userId', (req, res) => {
+    db.Mealplan.update({
+      sunday: req.params.recipeId,
+      where: {
+        UserId: req.params.userId,
+      },
+    }).then((results) => {
+      res.json(results);
+    });
   });
 };

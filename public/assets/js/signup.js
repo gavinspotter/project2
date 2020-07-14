@@ -27,7 +27,17 @@ $(document).ready(() => {
       password: password,
     })
       .then(() => {
-        window.location.replace('/search');
+        // grab new user info
+        let user = {};
+        $.post('/api/user_data').then((res) => {
+          // set user info to the response
+          user = { id: res.id, email: res.email };
+          // post request to mealplans and create a new plan for the user
+          $.post(`/api/mealplans/${user.id}`).then(() => {
+            // redirect the user to the search page now that they're logged in
+            window.location.replace('/search');
+          });
+        });
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
