@@ -27,6 +27,9 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: 'cascade',
     });
   };
+  User.associate = (models) => {
+    User.hasOne(models.Mealplan);
+  };
   // Method will check if password entered by user
   //   can be compared to hashed password in database.
   User.prototype.validPassword = function (password) {
@@ -37,7 +40,7 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
-      null,
+      null
     );
   });
   return User;

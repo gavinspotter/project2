@@ -24,6 +24,7 @@ const createCards = (title, imageSrc, id, description) => {
     class: 'btn card-save-button btn-sm font-weight-bolder card-bottom save-recipe',
     'data-recipe-id': id,
     'data-recipe-title': title,
+    'data-image': imageSrc,
   }).text('Save to Calendar');
   cardEl.append(cardImgEl, saveBtnEl);
   const textWrapperEl = $('<div>', {
@@ -56,14 +57,16 @@ $(document.body).on('click', '.save-recipe', (e) => {
   // get recipe id and title from data attributes saved to the elements
   const id = e.target.getAttribute('data-recipe-id');
   const title = e.target.getAttribute('data-recipe-title');
-  console.log(id);
+  const imageSrc = e.target.getAttribute('data-image');
+  console.log(id, title, user.id);
   $.post('/api/recipes', {
     title: title,
     recipeId: id,
     userId: user.id,
+    image: imageSrc,
   })
-    .then(() => {
-      // alert('saved');
+    .then((result) => {
+      console.log(result);
     })
     .catch((err) => {
       console.log(err);

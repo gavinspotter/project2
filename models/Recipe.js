@@ -17,21 +17,21 @@ module.exports = (sequelize, DataTypes) => {
         len: [1],
       },
     },
-    pickedDay: {
+    image: {
       type: DataTypes.STRING,
     },
   });
+  Recipe.associate = (models) => {
+    Recipe.hasMany(models.ShoppingList, {
+      onDelete: 'cascade',
+    });
+  };
   // create a relation to the user who saved the recipe
   Recipe.associate = (models) => {
     Recipe.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
       },
-    });
-  };
-  Recipe.associate = (models) => {
-    Recipe.hasMany(models.ShoppingList, {
-      onDelete: 'cascade',
     });
   };
   return Recipe;
