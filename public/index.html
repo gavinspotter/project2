@@ -10,25 +10,37 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>FoodShop</title>
+  <title>Food Guru</title>
 </head>
 <!-- start -->
 
 <body>
   <div class="container">
     <!-- navbar with account details-->
-    <nav class="navbar navbar-expand-lg" id="nav">
-      <form>
-        <button class="btn btn-outline-warning btn-lg border-white font-weight-bolder p-2" type="button"
-          id="signUpButton" data-toggle="modal" data-target="#signUpModal">
+    <nav class="navbar text-nav bg-transparent">
+      <a class="navbar-brand text-nav">FOOD GURU</a>
+      <form class="form-inline">
+        <button
+          class="btn text-nav btn-outline-warning btn-lg border-white font-weight-bolder my-2 my-sm-0"
+          type="button"
+          id="signUpButton"
+          data-toggle="modal"
+          data-target="#signUpModal"
+        >
           Sign Up
         </button>
-        <button class="btn btn-outline-warning btn-lg border-white font-weight-bolder" type="button" id="loginButton"
-          data-toggle="modal" data-target="#myModal">
+        <button
+          class="btn text-nav btn-outline-warning btn-lg border-white font-weight-bolder my-2 my-sm-0"
+          type="button"
+          id="loginButton"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
           Login
         </button>
       </form>
     </nav>
+
 
     <div id="myModal" class="modal fade">
       <div class="modal-dialog modal-login">
@@ -93,7 +105,9 @@
   <div class="container-fluid">
     <div class="row rounded search-image">
       <div class="col-md-12 search-image-inside">
-        <h1 id="jumbotron-header">FOOD GURU</h1>
+        <h1 class="jumbotron-header">FOOD GURU</h1>
+    <!--image from: https://www.clipartmax.com/middle/m2i8N4A0N4b1K9Z5_how-can-we-help-you-food-icon-white-png/ -->
+        <img src="./assets/images/logo.png" id="logo" alt="food guru logo"/>
       </div>
     </div>
     <div class="col-2"></div>
@@ -106,7 +120,7 @@
       <div class="col-2"></div>
       <div class="col-md-8 col-sm-12">
         <h5 class="h5-header" style="text-align: center; color: #cac9c9;">
-          Hello Friends! Welcome to Food Guru. Let us make meal Planning less hectic for you and your family!
+          Welcome to Food Guru, where meal planning is a breeze for you and your family
         </h5>
       </div>
     </div>
@@ -118,7 +132,9 @@
     <div class="row">
       <div class="col-md-4 col-sm-12">
         <div class="card text-center border-0" style="width: 18rem;">
-          <img src="././assets/images/list.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+
+          <!--Icon made by Freepik from www.flaticon.com-->
+          <img src="././assets/images/list.png" class="mx-auto d-block" alt="list" style="width: 50px;" />
           <div class="card-body">
             <h5 class="card-title" style="color: #545454;">
               Search Recipes
@@ -132,7 +148,9 @@
 
       <div class="col-md-4 col-sm-12">
         <div class="card text-center border-0" style="width: 18rem;">
-          <img src="././assets/images/calendar.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+
+          <!--Icon made by Freepik from www.flaticon.com-->
+          <img src="././assets/images/calendar.png" class="mx-auto d-block" style="width: 50px;" alt="calendar"/>
           <div class="card-body">
             <h5 class="card-title" style="color: #545454;">
               Plan Meals
@@ -146,7 +164,9 @@
       </div>
       <div class="col-md-4 col-sm-12">
         <div class="card text-center border-0" style="width: 18rem;">
-          <img src="././assets/images/grocery.png" class="mx-auto d-block" alt="..." style="width: 50px;" />
+
+        <!--Icon made by iconixar from www.flaticon.com-->
+          <img src="././assets/images/grocery.png" class="mx-auto d-block" style="width: 50px;" alt="grocery basket"/>
           <div class="card-body">
             <h5 class="card-title" style="color: #545454;">
               Grocery Lists
