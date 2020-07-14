@@ -1,90 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Fredoka+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>FoodGuru</title>
-</head>
-
-<body>
-  <div class="container">
-    <!-- navbar with account details-->
-    <nav class="navbar navbar-expand-lg" id="nav">
-      <a class="navbar-brand text-nav" href="#">FOOD GURU</a>
-      <button class="navbar-toggler" type="button" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto w-100 justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link text-nav" href="./saved.html">My Calendar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-nav" href="/logout">Logout</a>
-          </li>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>FoodGuru</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- navbar with account details-->
+      <nav class="navbar navbar-expand-lg" id="nav">
+        <a class="navbar-brand text-nav" href="/">FOOD GURU</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto w-100 justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link text-nav" href="/saved">My Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-nav" href="/logout">Logout</a>
+            </li>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-  <div class="container-fluid">
-    <div class="row rounded search-image">
-      <div class="col-md-12 search-image-inside">
-        <h1 id="jumbotron-header">FOODGURU</h1>
-        <p>Plan weekly meals by searching the recipe library</p>
-
-        <div class="input-group" id="searchBox">
-          <input type="text" class="form-control border-warning" aria-label="Recipient's username"
-            aria-describedby="button-addon2" />
-          <div class="input-group-append ">
-            <button class="btn btn-outline-warning border-warning bg-white" type="button" id="searchButton">
-              </i>Search
-            </button>
+      </nav>
+    </div>
+    <div class="container-fluid">
+      <div class="row rounded search-image">
+        <div class="col-md-12 search-image-inside">
+          <h1 id="jumbotron-header">FOODGURU</h1>
+          <p>Plan weekly meals by searching the recipe library</p>
+          <div class="input-group" id="searchBox">
+            <input
+              type="text"
+              class="form-control border-warning"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-warning border-warning bg-white"
+                type="button"
+                id="searchButton"
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="container">
-
-      <div class="row foodContainer">
-
-        <div class="card-deck">
-          <div class="card col-md-4 rounded resultsDiv">
-            <div class="card-header text-center font-weight-bold recipe-name">Chicken Parm</div>
-            <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg"
-              class="card-img results-card-img" alt="chicken parm" />
-            <div class="card-body py-2">
-              <p class="card-text results-recipe-description">
-                This is a description of the recipe
-              </p>
-              <button type="button" class="btn btn-sm font-weight-bolder card-button saveRecipe">Save to Calendar
-              </button>
-            </div>
-
-
-          </div>
-        </div>
-
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.js"
-          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-          crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-          crossorigin="anonymous"></script>
-        <script src="./assets/js/script.js"></script>
-</body>
-
+      <div class="card-deck"></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

@@ -19,12 +19,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>FOOD GURU</title>
+    <title>FOODGURU</title>
   </head>
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg" id="nav">
-        <a class="navbar-brand text-nav" href="#">FOOD GURU</a>
+        <a class="navbar-brand text-nav" href="#">FOODGURU</a>
         <button
           class="navbar-toggler "
           type="button"
@@ -57,7 +57,7 @@
       <div class="row" >
       
         <div class="col-md-12">
-          <h1 id="saved-header">FOOD GURU</h1>
+          <h1 id="saved-header">FOODGURU</h1>
         </div>
 
         <div class="col-md-6 manage-view-buttons">
@@ -101,7 +101,7 @@
                 <div class="modal-body">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      <span class="name">Chicken Cesaer Salad w/ Corn</span>
+                      <span class="name"></span>Chicken Cesaer Salad w/ Corn</span>
                       <div class="float-right">
                         <button type="button" class="btn btn-danger btn-sm" aria-label="Close">
                           Delete
@@ -173,6 +173,10 @@
                   <button type="button" class="btn btn-sm font-weight-bolder card-button " id="mondayButton"
 
                   data-toggle='modal' data-target="#mondayModal">Select Recipe</button>
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="mondayRecipeButton"
+
+                  data-toggle='modal' data-target="#mondayRecipeModal">View Recipe</button>
               </div>
             </div>
           </div>
@@ -191,6 +195,10 @@
                   <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="tuesdayButton"
 
                   data-toggle='modal' data-target="#tuesdayModal">Select Recipe</button>
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="tuesdayRecipeButton"
+
+                  data-toggle='modal' data-target="#tuesdayRecipeModal">View Recipe</button>
               </div>
             </div>
           </div>
@@ -207,6 +215,10 @@
                   <button type="button" class="btn card-button text-white btn-sm font-weight-bold" id="wednesdayButton"
 
                   data-toggle='modal' data-target="#wednesdayModal">Select Recipe</button>
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="wednesdayRecipeButton"
+
+                  data-toggle='modal' data-target="#wednesdayRecipeModal">View Recipe</button>
               </div>
             </div>
           </div>
@@ -224,9 +236,11 @@
                 <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="thursdayButton"
 
                 data-toggle='modal' data-target="#thursdayModal">Select Recipe</button>
+
+                <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="thursdayRecipeButton"
+
+                  data-toggle='modal' data-target="#thursdayRecipeModal">View Recipe</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="mondayButton" data-toggle='modal'
-              data-target="#mondayModal">Select Recipe</button>
           </div>
           </div>
           <div class="col-md-4">
@@ -242,9 +256,11 @@
                 <button type="button" class="btn card-button btn-sm font-weight-bolder" id="fridayButton"
 
                 data-toggle='modal' data-target="#fridayModal">Select Recipe</button>
+
+                <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="fridayRecipeButton"
+
+                  data-toggle='modal' data-target="#fridayRecipeModal">View Recipe</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="tuesdayButton"
-              data-toggle='modal' data-target="#tuesdayModal">Select Recipe</button>
           </div>
           </div>
       
@@ -261,12 +277,14 @@
                   <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="saturdayButton"
 
                   data-toggle='modal' data-target="#saturdayModal">Select Recipe</button>
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="saturdayRecipeButton"
+
+                  data-toggle='modal' data-target="#saturdayRecipeModal">View Recipe</button>
               </div>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bold" id="wednesdayButton"
-              data-toggle='modal' data-target="#wednesdayModal">Select Recipe</button>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 mx-auto">
             <div class="card-deck">
 
               <div class="card text-warning bg-white mt-3" style="width: 16rem;">
@@ -279,62 +297,12 @@
                   <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="sundayButton"
 
                   data-toggle='modal' data-target="#sundayModal">Select Recipe</button>
+
+                  <button type="button" class="btn card-button  btn-sm font-weight-bolder mt-1" id="sundayRecipeButton"
+
+                  data-toggle='modal' data-target="#sundayRecipeModal">View Recipe</button>
               </div>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="thursdayButton"
-              data-toggle='modal' data-target="#thursdayModal">Select Recipe</button>
-          </div>
-          <div class="col-md-4">
-            <div class="card-deck">
-
-              <div class="card text-warning bg-white mt-3" style="width: 16rem;">
-
-                <div class="card-header text-center font-weight-bold">Weekly Snack</div>
-                <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
-                <div class="card-body py-2">
-                  <p class="card-text text-center">Chicken Parm</div>
-
-                  <button type="button" class="btn card-button   btn-sm font-weight-bolder" id="snackButton"
-
-                  data-toggle='modal' data-target="#snackModal">Select Recipe</button>
-              </div>
-            </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="fridayButton" data-toggle='modal'
-              data-target="#fridayModal">Select Recipe</button>
-          </div>
-        
-          <div class="col-md-4">
-            <div class="card-deck">
-
-              <div class="card text-warning bg-white mt-3"style="width: 16rem;">
-
-                <div class="card-header text-center font-weight-bold">Dessert</div>
-                <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg" class="card-img" alt="chicken parm" />
-                <div class="card-body py-2">
-                  <p class="card-text text-center">Chicken Parm</div>
-
-                  <button type="button" class="btn card-button  btn-sm font-weight-bolder" id="dessertButton"
-
-                  data-toggle='modal' data-target="#dessertModal">Select Recipe</button>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="saturdayButton"
-              data-toggle='modal' data-target="#saturdayModal">Select Recipe</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-deck">
-          <div class="card text-white bg-warning mt-3" style="width: 16rem;">
-            <div class="card-header text-center font-weight-bold">Sunday</div>
-            <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg"
-              class="card-img" alt="chicken parm" />
-            <div class="card-body py-2">
-              <p class="card-text text-center">Chicken Parm
-            </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="sundayButton" data-toggle='modal'
-              data-target="#sundayModal">Select Recipe</button>
           </div>
         </div>
       </div>
@@ -357,247 +325,300 @@
               <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
               <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="snackButton" data-toggle='modal'
-              data-target="#snackModal">Select Recipe</button>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="card-deck">
-          <div class="card text-white bg-warning mt-3" style="width: 16rem;">
-            <div class="card-header text-center font-weight-bold">Dessert</div>
-            <img src="https://media.olivegarden.com/en_us/images/product/dinner-chicken-parm-dpv-590x365.jpg"
-              class="card-img" alt="chicken parm" />
-            <div class="card-body py-2">
-              <p class="card-text text-center">Chicken Parm
+    </div>
+    <!-- Monday Recipe Modal -->
+    <div class="modal fade" id="mondayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="mondayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="mondayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tuesday -->
+    <div class="modal fade" id="tuesdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
             </div>
-            <button type="button" class="btn btn-danger btn-sm font-weight-bolder" id="dessertButton"
-              data-toggle='modal' data-target="#dessertModal">Select Recipe</button>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="row saved-recipes">
-      <button class="delete-list btn btn-primary">Clear List</button>
-      <div class="row">
-        <div class="col-md-3 test-list">
-          <ul class="list-group list-group-flush test-list-ul"></ul>
-        </div>
-        <div class="col-md-9 test-recipes"></div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <!-- Optional JavaScript -->
-  <!-- Monday -->
-  <div class="modal fade" id="mondayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Tuesday Recipe Modal -->
+    <div class="modal fade" id="tuesdayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="tuesdayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="tuesdayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Tuesday -->
-  <div class="modal fade" id="tuesdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Wednesday -->
+    <div class="modal fade" id="wednesdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            </div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Wednesday -->
-  <div class="modal fade" id="wednesdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Wednesday Recipe Modal -->
+    <div class="modal fade" id="wednesdayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="wednesdayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="wednesdayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Thursday -->
-  <div class="modal fade" id="thursdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Thursday -->
+    <div class="modal fade" id="thursdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            </div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Friday -->
-  <div class="modal fade" id="fridayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Thursday Recipe Modal -->
+    <div class="modal fade" id="thursdayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="thursdayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="thursdayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Saturday -->
-  <div class="modal fade" id="saturdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Friday -->
+    <div class="modal fade" id="fridayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            </div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Sunday -->
-  <div class="modal fade" id="sundayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Friday Recipe Modal -->
+    <div class="modal fade" id="fridayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="fridayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="fridayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Snack -->
-  <div class="modal fade" id="snackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Saturday -->
+    <div class="modal fade" id="saturdayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            </div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
-  </div>
-  <!-- Dessert -->
-  <div class="modal fade" id="dessertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title w-100 text-center">Select a recipe</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="list-group">
-            <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <!-- Saturday Recipe Modal -->
+    <div class="modal fade" id="saturdayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="saturdayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="saturdayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-        <div class="modal-footer mr-3">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- Sunday -->
+    <div class="modal fade" id="sundayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Select a recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+            </div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Sunday Recipe Modal -->
+    <div class="modal fade" id="sundayRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100 text-center">Ingredients & Recipe</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <p class="font-weight-bold">Ingredients</p>
+              <div id="sundayFoodList"></div>
+              <p class="font-weight-bold">Recipe</p>
+              <div id="sundayRecipeList"></div>
+          </div>
+          <div class="modal-footer mr-3">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.js"
